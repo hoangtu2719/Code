@@ -282,6 +282,7 @@
     <Content Include="Views\LienHe\LienHe.cshtml" />
     <Content Include="Views\Layout\LayoutNGUOIDUNG.cshtml" />
     <Content Include="Views\NguoiDung\NguoiDung.cshtml" />
+    <Content Include="Views\NguoiDung\Dangnhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
