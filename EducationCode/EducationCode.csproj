@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LearnController.cs" />
     <Compile Include="Controllers\LienHeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
@@ -283,6 +284,8 @@
     <Content Include="Views\Layout\LayoutNGUOIDUNG.cshtml" />
     <Content Include="Views\NguoiDung\NguoiDung.cshtml" />
     <Content Include="Views\NguoiDung\Dangnhap.cshtml" />
+    <Content Include="Views\Learn\Learn.cshtml" />
+    <Content Include="Views\Layout\LayoutLearn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
