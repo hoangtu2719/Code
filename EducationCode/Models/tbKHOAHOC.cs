@@ -19,5 +19,6 @@ namespace EducationCode.Models
         public string AnhKhoaHoc { get; set; }
         public string GioiThieu { get; set; }
         public Nullable<System.DateTime> NgayDang { get; set; }
+        public Nullable<int> LuotXem { get; set; }
     }
 }

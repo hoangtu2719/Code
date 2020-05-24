@@ -26,6 +26,7 @@ warning 6002: The table/view 'DataCodeShark.dbo.tbKHOAHOC' does not have a prima
           <Property Name="AnhKhoaHoc" Type="varchar(max)" />
           <Property Name="GioiThieu" Type="nvarchar" MaxLength="30" />
           <Property Name="NgayDang" Type="datetime" />
+          <Property Name="LuotXem" Type="int" />
         </EntityType>
         <EntityContainer Name="DataCodeSharkModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -35,7 +36,8 @@ warning 6002: The table/view 'DataCodeShark.dbo.tbKHOAHOC' does not have a prima
     [tbKHOAHOC].[TenKhoaHoc] AS [TenKhoaHoc], 
     [tbKHOAHOC].[AnhKhoaHoc] AS [AnhKhoaHoc], 
     [tbKHOAHOC].[GioiThieu] AS [GioiThieu], 
-    [tbKHOAHOC].[NgayDang] AS [NgayDang]
+    [tbKHOAHOC].[NgayDang] AS [NgayDang], 
+    [tbKHOAHOC].[LuotXem] AS [LuotXem]
     FROM [dbo].[tbKHOAHOC] AS [tbKHOAHOC]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
@@ -62,6 +64,7 @@ warning 6002: The table/view 'DataCodeShark.dbo.tbKHOAHOC' does not have a prima
           <Property Name="AnhKhoaHoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="GioiThieu" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="NgayDang" Type="DateTime" Precision="3" />
+          <Property Name="LuotXem" Type="Int32" />
         </EntityType>
         <EntityContainer Name="DataCodeSharkEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
@@ -87,6 +90,7 @@ warning 6002: The table/view 'DataCodeShark.dbo.tbKHOAHOC' does not have a prima
           <EntitySetMapping Name="tbKHOAHOCs">
             <EntityTypeMapping TypeName="DataCodeSharkModel.tbKHOAHOC">
               <MappingFragment StoreEntitySet="tbKHOAHOC">
+                <ScalarProperty Name="LuotXem" ColumnName="LuotXem" />
                 <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
                 <ScalarProperty Name="MaKhoaHoc" ColumnName="MaKhoaHoc" />
                 <ScalarProperty Name="TenKhoaHoc" ColumnName="TenKhoaHoc" />

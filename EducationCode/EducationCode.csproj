@@ -274,6 +274,7 @@
     <Content Include="Views\Learn\Learn.cshtml" />
     <Content Include="Views\Layout\LayoutLearn.cshtml" />
     <Content Include="Views\LocKhoaHoc\LocKhoaHocMoiNhat.cshtml" />
+    <Content Include="Views\LocKhoaHoc\LocKhoaHocXemNhieu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
