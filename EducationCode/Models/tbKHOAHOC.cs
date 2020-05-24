@@ -12,14 +12,12 @@ namespace EducationCode.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class NGUOIDUNG
+    public partial class tbKHOAHOC
     {
-        public int MaNguoiDung { get; set; }
-        public string Email { get; set; }
-        public string MatKhau { get; set; }
-        public string TenNguoiDung { get; set; }
-        public string DiaChi { get; set; }
-        public string SDT { get; set; }
-        public string CMND { get; set; }
+        public int MaKhoaHoc { get; set; }
+        public string TenKhoaHoc { get; set; }
+        public string AnhKhoaHoc { get; set; }
+        public string GioiThieu { get; set; }
+        public Nullable<System.DateTime> NgayDang { get; set; }
     }
 }
