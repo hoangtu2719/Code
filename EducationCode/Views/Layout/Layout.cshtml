@@ -20,12 +20,13 @@ Author URL: http://w3layouts.com
 </head>
 <body>
     <!--Menu web-->
-    @Html.Action("Menu","Menu")
+    @RenderBody()
     <!--//Menu web-->
     <!-- //w3l-banner-slider-main -->
-    @Html.Action("LocKhoaHocMoiNhat","LocKhoaHoc")
+    @Html.Action("LocKhoaHocMoiNhat", "LocKhoaHoc")
+    @Html.Action("LocKhoaHocXemNhieu", "LocKhoaHoc")
     <!-- //content-6-section -->
-    @Html.Action("LocKhoaHocXemNhieu","LocKhoaHoc")
+
     <section class="w3l-features-1">
         <!-- /features-1-->
         <div class="features-1-mian py-5">
@@ -718,7 +719,6 @@ Author URL: http://w3layouts.com
         </script>
     </section>
     <!-- //footer -->
-    @RenderBody()
 </body>
 
 </html>

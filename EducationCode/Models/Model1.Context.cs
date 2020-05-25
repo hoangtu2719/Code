@@ -27,5 +27,6 @@ namespace EducationCode.Models
     
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tbKHOAHOC> tbKHOAHOCs { get; set; }
+        public virtual DbSet<tbBAIHOC> tbBAIHOCs { get; set; }
     }
 }

@@ -19,5 +19,13 @@ namespace EducationCode.Controllers
         {
             return PartialView(db.tbKHOAHOCs.ToList());
         }
+        public ActionResult LocTatCaKhoaHoc()
+        {
+            return View(db.tbKHOAHOCs.ToList());
+        }
+        public ActionResult TatCacKhoaHocXemNhieu()
+        {
+            return View(db.tbKHOAHOCs.ToList());
+        }
     }
 }

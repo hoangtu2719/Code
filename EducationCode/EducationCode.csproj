@@ -128,7 +128,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChiTietKhoaHocController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KHController.cs" />
     <Compile Include="Controllers\LearnController.cs" />
     <Compile Include="Controllers\LienHeController.cs" />
     <Compile Include="Controllers\LocKhoaHocController.cs" />
@@ -155,6 +157,9 @@
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tbBAIHOC.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tbKHOAHOC.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -163,11 +168,6 @@
   <ItemGroup>
     <Content Include="Content\assets\css\style-starter.css" />
     <Content Include="Content\assets\fonts\fontawesome-webfont.svg" />
-    <Content Include="Content\assets\images\1.jpg" />
-    <Content Include="Content\assets\images\2.jpg" />
-    <Content Include="Content\assets\images\3.jpg" />
-    <Content Include="Content\assets\images\4.jpg" />
-    <Content Include="Content\assets\images\ab.jpg" />
     <Content Include="Content\assets\images\Banner.png" />
     <Content Include="Content\assets\images\Banner2.jpg" />
     <Content Include="Content\assets\images\Banner3.jpeg" />
@@ -178,12 +178,18 @@
     <Content Include="Content\assets\images\bg33.jpg" />
     <Content Include="Content\assets\images\bg4.jpg" />
     <Content Include="Content\assets\images\bg44.jpg" />
+    <Content Include="Content\assets\images\BT.png" />
     <Content Include="Content\assets\images\c1.jpg" />
     <Content Include="Content\assets\images\c2.jpg" />
     <Content Include="Content\assets\images\c3.jpg" />
+    <Content Include="Content\assets\images\CSS.jpg" />
+    <Content Include="Content\assets\images\CSSNC.jpg" />
     <Content Include="Content\assets\images\g1.jpg" />
     <Content Include="Content\assets\images\grid1.jpg" />
     <Content Include="Content\assets\images\HTML.png" />
+    <Content Include="Content\assets\images\HTMLNC.jpg" />
+    <Content Include="Content\assets\images\JS.png" />
+    <Content Include="Content\assets\images\JSNC.png" />
     <Content Include="Content\assets\images\p1.jpg" />
     <Content Include="Content\assets\images\p2.jpg" />
     <Content Include="Content\assets\images\p3.jpg" />
@@ -192,14 +198,6 @@
     <Content Include="Content\assets\images\p6.jpg" />
     <Content Include="Content\assets\images\p7.jpg" />
     <Content Include="Content\assets\images\p8.jpg" />
-    <Content Include="Content\assets\images\team1.jpg" />
-    <Content Include="Content\assets\images\team2.jpg" />
-    <Content Include="Content\assets\images\team3.jpg" />
-    <Content Include="Content\assets\images\team4.jpg" />
-    <Content Include="Content\assets\images\team5.jpg" />
-    <Content Include="Content\assets\images\team6.jpg" />
-    <Content Include="Content\assets\images\team7.jpg" />
-    <Content Include="Content\assets\images\team8.jpg" />
     <Content Include="Content\assets\js\all.js" />
     <Content Include="Content\assets\js\app.js" />
     <Content Include="Content\assets\js\bootstrap.min.js" />
@@ -270,11 +268,12 @@
     <Content Include="Views\TrangChu\Index.cshtml" />
     <Content Include="Views\Menu\Menu.cshtml" />
     <Content Include="Views\LienHe\LienHe.cshtml" />
-    <Content Include="Views\Layout\LayoutNGUOIDUNG.cshtml" />
-    <Content Include="Views\Learn\Learn.cshtml" />
-    <Content Include="Views\Layout\LayoutLearn.cshtml" />
     <Content Include="Views\LocKhoaHoc\LocKhoaHocMoiNhat.cshtml" />
     <Content Include="Views\LocKhoaHoc\LocKhoaHocXemNhieu.cshtml" />
+    <Content Include="Views\KH\KHxemnhieu.cshtml" />
+    <Content Include="Views\LocKhoaHoc\LocTatCaKhoaHoc.cshtml" />
+    <Content Include="Views\LocKhoaHoc\TatCacKhoaHocXemNhieu.cshtml" />
+    <Content Include="Views\ChiTietKhoaHoc\ChiTietBaiVietMN.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

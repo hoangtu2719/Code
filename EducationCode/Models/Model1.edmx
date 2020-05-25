@@ -15,8 +15,16 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DataCodeShark.dbo.tbKHOAHOC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbBAIHOC">
+          <Key>
+            <PropertyRef Name="MaBaiHoc" />
+          </Key>
+          <Property Name="MaBaiHoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenBaiHoc" Type="nvarchar" MaxLength="50" />
+          <Property Name="Anh" Type="nvarchar(max)" />
+          <Property Name="LuotXem" Type="int" />
+          <Property Name="MaKhoahoc" Type="int" />
+        </EntityType>
         <EntityType Name="tbKHOAHOC">
           <Key>
             <PropertyRef Name="MaKhoaHoc" />
@@ -28,18 +36,26 @@ warning 6002: The table/view 'DataCodeShark.dbo.tbKHOAHOC' does not have a prima
           <Property Name="NgayDang" Type="datetime" />
           <Property Name="LuotXem" Type="int" />
         </EntityType>
+        <Association Name="FK_tbBAIHOC_tbKHOAHOC">
+          <End Role="tbKHOAHOC" Type="Self.tbKHOAHOC" Multiplicity="0..1" />
+          <End Role="tbBAIHOC" Type="Self.tbBAIHOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbKHOAHOC">
+              <PropertyRef Name="MaKhoaHoc" />
+            </Principal>
+            <Dependent Role="tbBAIHOC">
+              <PropertyRef Name="MaKhoahoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DataCodeSharkModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tbKHOAHOC" EntityType="Self.tbKHOAHOC" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [tbKHOAHOC].[MaKhoaHoc] AS [MaKhoaHoc], 
-    [tbKHOAHOC].[TenKhoaHoc] AS [TenKhoaHoc], 
-    [tbKHOAHOC].[AnhKhoaHoc] AS [AnhKhoaHoc], 
-    [tbKHOAHOC].[GioiThieu] AS [GioiThieu], 
-    [tbKHOAHOC].[NgayDang] AS [NgayDang], 
-    [tbKHOAHOC].[LuotXem] AS [LuotXem]
-    FROM [dbo].[tbKHOAHOC] AS [tbKHOAHOC]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="tbBAIHOC" EntityType="Self.tbBAIHOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbKHOAHOC" EntityType="Self.tbKHOAHOC" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tbBAIHOC_tbKHOAHOC" Association="Self.FK_tbBAIHOC_tbKHOAHOC">
+            <End Role="tbKHOAHOC" EntitySet="tbKHOAHOC" />
+            <End Role="tbBAIHOC" EntitySet="tbBAIHOC" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -65,11 +81,40 @@ warning 6002: The table/view 'DataCodeShark.dbo.tbKHOAHOC' does not have a prima
           <Property Name="GioiThieu" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="NgayDang" Type="DateTime" Precision="3" />
           <Property Name="LuotXem" Type="Int32" />
+          <NavigationProperty Name="tbBAIHOCs" Relationship="DataCodeSharkModel.FK_tbBAIHOC_tbKHOAHOC" FromRole="tbKHOAHOC" ToRole="tbBAIHOC" />
         </EntityType>
         <EntityContainer Name="DataCodeSharkEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="tbKHOAHOCs" EntityType="Self.tbKHOAHOC" />
+          <EntitySet Name="tbBAIHOCs" EntityType="DataCodeSharkModel.tbBAIHOC" />
+          <AssociationSet Name="FK_tbBAIHOC_tbKHOAHOC" Association="DataCodeSharkModel.FK_tbBAIHOC_tbKHOAHOC">
+            <End Role="tbKHOAHOC" EntitySet="tbKHOAHOCs" />
+            <End Role="tbBAIHOC" EntitySet="tbBAIHOCs" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="tbBAIHOC">
+          <Key>
+            <PropertyRef Name="MaBaiHoc" />
+          </Key>
+          <Property Name="MaBaiHoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenBaiHoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Anh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LuotXem" Type="Int32" />
+          <Property Name="MaKhoahoc" Type="Int32" />
+          <NavigationProperty Name="tbKHOAHOC" Relationship="DataCodeSharkModel.FK_tbBAIHOC_tbKHOAHOC" FromRole="tbBAIHOC" ToRole="tbKHOAHOC" />
+        </EntityType>
+        <Association Name="FK_tbBAIHOC_tbKHOAHOC">
+          <End Type="DataCodeSharkModel.tbKHOAHOC" Role="tbKHOAHOC" Multiplicity="0..1" />
+          <End Type="DataCodeSharkModel.tbBAIHOC" Role="tbBAIHOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbKHOAHOC">
+              <PropertyRef Name="MaKhoaHoc" />
+            </Principal>
+            <Dependent Role="tbBAIHOC">
+              <PropertyRef Name="MaKhoahoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -96,6 +141,17 @@ warning 6002: The table/view 'DataCodeShark.dbo.tbKHOAHOC' does not have a prima
                 <ScalarProperty Name="TenKhoaHoc" ColumnName="TenKhoaHoc" />
                 <ScalarProperty Name="AnhKhoaHoc" ColumnName="AnhKhoaHoc" />
                 <ScalarProperty Name="GioiThieu" ColumnName="GioiThieu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbBAIHOCs">
+            <EntityTypeMapping TypeName="DataCodeSharkModel.tbBAIHOC">
+              <MappingFragment StoreEntitySet="tbBAIHOC">
+                <ScalarProperty Name="MaKhoahoc" ColumnName="MaKhoahoc" />
+                <ScalarProperty Name="LuotXem" ColumnName="LuotXem" />
+                <ScalarProperty Name="Anh" ColumnName="Anh" />
+                <ScalarProperty Name="TenBaiHoc" ColumnName="TenBaiHoc" />
+                <ScalarProperty Name="MaBaiHoc" ColumnName="MaBaiHoc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -14,11 +14,20 @@ namespace EducationCode.Models
     
     public partial class tbKHOAHOC
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tbKHOAHOC()
+        {
+            this.tbBAIHOCs = new HashSet<tbBAIHOC>();
+        }
+    
         public int MaKhoaHoc { get; set; }
         public string TenKhoaHoc { get; set; }
         public string AnhKhoaHoc { get; set; }
         public string GioiThieu { get; set; }
         public Nullable<System.DateTime> NgayDang { get; set; }
         public Nullable<int> LuotXem { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbBAIHOC> tbBAIHOCs { get; set; }
     }
 }
