@@ -1,0 +1,19 @@
+﻿@using EducationCode.Models;
+@model List<tbKHOAHOC>
+@{
+    Layout = null;
+}
+
+    <li class="nav-item">
+        <div class="dropdown">
+            <a class="dropdown-toggle nav-link" id="dropdownMenu2" data-toggle="dropdown" href="#">
+                Khóa học
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                @foreach(var item in Model)
+                    {
+                    <a class="dropdown-item" href="@Url.Action("ChiTietBaiVietMN","ChiTietKhoaHoc", new {makhoahoc = item.MaKhoaHoc})">@item.TenKhoaHoc</a>
+                }
+            </div>
+        </div>
+    </li>

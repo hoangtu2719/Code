@@ -80,7 +80,7 @@
             <!--/nav-->
             <nav class="navbar navbar-expand-lg navbar-light fill">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/TrangChu">
                         <label class="lohny"><span class="fa fa-graduation-cap" aria-hidden="true"></span>Code</label>Shark
                     </a>
                     <!-- if logo is image enable this
@@ -98,9 +98,7 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="index.html">Giới thiệu</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="about.html">Khóa học</a>
-                            </li>
+                            @Html.Action("DanhSachKhoaHoc","Menu")
                             <li class="nav-item">
                                 <a class="nav-link" href="services.html">Tài liệu</a>
                             </li>
@@ -110,6 +108,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/LienHe/LienHe">Blog</a>
                             </li>
+
                         </ul>
 
                     </div>

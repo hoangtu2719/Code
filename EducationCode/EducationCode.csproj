@@ -274,6 +274,7 @@
     <Content Include="Views\LocKhoaHoc\LocTatCaKhoaHoc.cshtml" />
     <Content Include="Views\LocKhoaHoc\TatCacKhoaHocXemNhieu.cshtml" />
     <Content Include="Views\ChiTietKhoaHoc\ChiTietBaiVietMN.cshtml" />
+    <Content Include="Views\Menu\DanhSachKhoaHoc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,24 +4,144 @@
     ViewBag.Title = "ChiTietBaiVietMN";
     Layout = "~/Views/Layout/Layout.cshtml";
 }
+<!--Menu-->
+<section class="w3l-top-header-content">
+    <div class="hny-top-menu">
+        <div class="top-hd">
+            <div class="container-fluid">
+                <div class="row">
+                    <ul class="social-top col-md-7">
+                        <!--<a class="sign-in" href="#"><span class="fa fa-user"></span> Đăng nhập</a>-->
+                        <li>
+                            <a class="sign-in" href="#" data-toggle="modal" data-target="#exampleModal" style="color:black;font-size:16px;font-family:sans-serif; margin-right:10px">
+                                <span class="fa fa-user"></span>
+                                Đăng nhập
+                            </a>
+                        </li>
 
-<section class="w3l-content-6">
-    <!-- /content-6-section -->
-    <div class="content-6-mian py-5">
-        <div class="container py-lg-5">
-            <div class="content-info-in row mt-md-5 mt-4">
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="background-color: #f30067">
+                                        <h5 class="modal-title" id="exampleModalLabel">Đăng nhập</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div>
+                                            <input class="form-control" placeholder="E-mail" type="text" style="border-radius:15px;" required />
 
-                @foreach (var item in Model)
-                {
-                <div class="col-lg-3 col-md-6 imghrs" style="margin-top:1%;">
-                    <a class="imghr" href="#">
-                        <img src="~/Content/assets/images/@item.Anh" class="img-fluid" alt="">
-                        <div class="details"><span class="title">@item.TenBaiHoc</span><span class="info">@item.MaBaiHoc</span></div>
-                    </a>
+                                        </div>
+
+                                        <input class="form-control" placeholder="Mật khẩu" type="password" style="border-radius:15px" required />
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+                                        <button type="button" class="btn btn-primary">Đăng nhập</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                        <li><a href="#"><span class="fa fa-instagram"></span></a> </li>
+                        <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                        <li><a href="#"><span class="fa fa-vimeo"></span></a> </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-linkedin"></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="accounts col-md-5">
+                        <li class="top_li">
+                            <span class="fa fa-mobile"></span><a href="tel:+0367278221">
+                                +0367278221
+
+                            </a>
+                        </li>
+
+                        <li class="top_li mr-lg-0">
+                            <span class="fa fa-envelope-o"></span><a href="mailto:info@example.com">Bạn cần giúp đỡ? Liên hệ chúng tôi </a>
+
+                        </li>
+
+                    </ul>
                 </div>
-                }
             </div>
         </div>
+
     </div>
 </section>
+<!--//Menu-->
+<!--aaa-->
+<section class="w3l-banner-slider-main">
+
+    <div class="bannerhny-content">
+        <header class="top-headerhny">
+            <!--/nav-->
+            <nav class="navbar navbar-expand-lg navbar-light fill">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/TrangChu">
+                        <label class="lohny" style="color:black"><span class="fa fa-graduation-cap" aria-hidden="true"></span>Code</label>Shark
+                    </a>
+                    <!-- if logo is image enable this
+                        <a class="navbar-brand" href="#index.html">
+                            <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+                        </a> -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mx-lg-auto ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link " href="index.html" >Giới thiệu</a>
+                            </li>
+                            @Html.Action("DanhSachKhoaHoc", "Menu")
+                            <li class="nav-item">
+                                <a class="nav-link" href="services.html" >Tài liệu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/LienHe/LienHe" >Liên hệ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/LienHe/LienHe" >Blog</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <form action="#" method="post" class="d-flex searchhny-form">
+                        <input type="search" placeholder="Tìm kiếm....." required="required">
+                        <button type="submit"><span class="fa fa-search" aria-hidden="true"></span></button>
+                    </form>
+                </div>
+            </nav>
+            <!--//nav-->
+        </header>
+     </div>
+</section>>
+        <!--aaa-->
+
+        <section class="w3l-content-6">
+            <!-- /content-6-section -->
+            <div class="content-6-mian py-5">
+                <div class="container py-lg-5">
+                    <div class="content-info-in row mt-md-5 mt-4">
+
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-lg-3 col-md-6 imghrs" style="margin-top:1%;">
+                                <a class="imghr" href="#">
+                                    <img src="~/Content/assets/images/@item.Anh" class="img-fluid" alt="">
+                                    <div class="details"><span class="title">@item.TenBaiHoc</span><span class="info">@item.MaBaiHoc</span></div>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
 
