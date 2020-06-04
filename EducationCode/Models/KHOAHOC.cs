@@ -12,22 +12,21 @@ namespace EducationCode.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tbKHOAHOC
+    public partial class KHOAHOC
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tbKHOAHOC()
+        public KHOAHOC()
         {
-            this.tbBAIHOCs = new HashSet<tbBAIHOC>();
+            this.BAIHOCs = new HashSet<BAIHOC>();
         }
     
-        public int MaKhoaHoc { get; set; }
-        public string TenKhoaHoc { get; set; }
-        public string AnhKhoaHoc { get; set; }
-        public string GioiThieu { get; set; }
-        public Nullable<System.DateTime> NgayDang { get; set; }
-        public Nullable<int> LuotXem { get; set; }
+        public int MAKHOAHOC { get; set; }
+        public string TENKHOAHOC { get; set; }
+        public string NOIDUNG { get; set; }
+        public string TACGIA { get; set; }
+        public string ANHKHOAHOC { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbBAIHOC> tbBAIHOCs { get; set; }
+        public virtual ICollection<BAIHOC> BAIHOCs { get; set; }
     }
 }

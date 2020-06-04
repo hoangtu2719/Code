@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CODESHARKModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BAIHOC">
+          <Key>
+            <PropertyRef Name="MABAIHOC" />
+          </Key>
+          <Property Name="MABAIHOC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MAKHOAHOC" Type="int" />
+          <Property Name="TENBAIHOC" Type="nvarchar" MaxLength="100" />
+          <Property Name="ANHBAIHOC" Type="nvarchar(max)" />
+          <Property Name="NOIDUNG" Type="text" />
+          <Property Name="NOIDUNG1" Type="text" />
+          <Property Name="NOIDUNG2" Type="text" />
+        </EntityType>
+        <EntityType Name="KHOAHOC">
+          <Key>
+            <PropertyRef Name="MAKHOAHOC" />
+          </Key>
+          <Property Name="MAKHOAHOC" Type="int" Nullable="false" />
+          <Property Name="TENKHOAHOC" Type="nvarchar" MaxLength="30" />
+          <Property Name="NOIDUNG" Type="nvarchar" MaxLength="100" />
+          <Property Name="TACGIA" Type="nvarchar" MaxLength="30" />
+          <Property Name="ANHKHOAHOC" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="NGUOIDUNG">
+          <Key>
+            <PropertyRef Name="MANGUOIDUNG" />
+          </Key>
+          <Property Name="MANGUOIDUNG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TAIKHOAN" Type="nvarchar" MaxLength="50" />
+          <Property Name="MATKHAU" Type="nvarchar" MaxLength="30" />
+          <Property Name="TENDANGNHAP" Type="nvarchar" MaxLength="30" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <Association Name="FK__BAIHOC__MAKHOAHO__145C0A3F">
+          <End Role="KHOAHOC" Type="Self.KHOAHOC" Multiplicity="0..1" />
+          <End Role="BAIHOC" Type="Self.BAIHOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOAHOC">
+              <PropertyRef Name="MAKHOAHOC" />
+            </Principal>
+            <Dependent Role="BAIHOC">
+              <PropertyRef Name="MAKHOAHOC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CODESHARKModelStoreContainer">
+          <EntitySet Name="BAIHOC" EntityType="Self.BAIHOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHOAHOC" EntityType="Self.KHOAHOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NGUOIDUNG" EntityType="Self.NGUOIDUNG" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__BAIHOC__MAKHOAHO__145C0A3F" Association="Self.FK__BAIHOC__MAKHOAHO__145C0A3F">
+            <End Role="KHOAHOC" EntitySet="KHOAHOC" />
+            <End Role="BAIHOC" EntitySet="BAIHOC" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CODESHARKModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BAIHOC">
+          <Key>
+            <PropertyRef Name="MABAIHOC" />
+          </Key>
+          <Property Name="MABAIHOC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MAKHOAHOC" Type="Int32" />
+          <Property Name="TENBAIHOC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ANHBAIHOC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NOIDUNG1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NOIDUNG2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="KHOAHOC" Relationship="Self.FK__BAIHOC__MAKHOAHO__145C0A3F" FromRole="BAIHOC" ToRole="KHOAHOC" />
+        </EntityType>
+        <EntityType Name="KHOAHOC">
+          <Key>
+            <PropertyRef Name="MAKHOAHOC" />
+          </Key>
+          <Property Name="MAKHOAHOC" Type="Int32" Nullable="false" />
+          <Property Name="TENKHOAHOC" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NOIDUNG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TACGIA" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ANHKHOAHOC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BAIHOCs" Relationship="Self.FK__BAIHOC__MAKHOAHO__145C0A3F" FromRole="KHOAHOC" ToRole="BAIHOC" />
+        </EntityType>
+        <EntityType Name="NGUOIDUNG">
+          <Key>
+            <PropertyRef Name="MANGUOIDUNG" />
+          </Key>
+          <Property Name="MANGUOIDUNG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TAIKHOAN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATKHAU" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TENDANGNHAP" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__BAIHOC__MAKHOAHO__145C0A3F">
+          <End Role="KHOAHOC" Type="Self.KHOAHOC" Multiplicity="0..1" />
+          <End Role="BAIHOC" Type="Self.BAIHOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOAHOC">
+              <PropertyRef Name="MAKHOAHOC" />
+            </Principal>
+            <Dependent Role="BAIHOC">
+              <PropertyRef Name="MAKHOAHOC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CODESHARKEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BAIHOCs" EntityType="Self.BAIHOC" />
+          <EntitySet Name="KHOAHOCs" EntityType="Self.KHOAHOC" />
+          <EntitySet Name="NGUOIDUNGs" EntityType="Self.NGUOIDUNG" />
+          <AssociationSet Name="FK__BAIHOC__MAKHOAHO__145C0A3F" Association="Self.FK__BAIHOC__MAKHOAHO__145C0A3F">
+            <End Role="KHOAHOC" EntitySet="KHOAHOCs" />
+            <End Role="BAIHOC" EntitySet="BAIHOCs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CODESHARKModelStoreContainer" CdmEntityContainer="CODESHARKEntities">
+          <EntitySetMapping Name="BAIHOCs">
+            <EntityTypeMapping TypeName="CODESHARKModel.BAIHOC">
+              <MappingFragment StoreEntitySet="BAIHOC">
+                <ScalarProperty Name="MABAIHOC" ColumnName="MABAIHOC" />
+                <ScalarProperty Name="MAKHOAHOC" ColumnName="MAKHOAHOC" />
+                <ScalarProperty Name="TENBAIHOC" ColumnName="TENBAIHOC" />
+                <ScalarProperty Name="ANHBAIHOC" ColumnName="ANHBAIHOC" />
+                <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+                <ScalarProperty Name="NOIDUNG1" ColumnName="NOIDUNG1" />
+                <ScalarProperty Name="NOIDUNG2" ColumnName="NOIDUNG2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHOAHOCs">
+            <EntityTypeMapping TypeName="CODESHARKModel.KHOAHOC">
+              <MappingFragment StoreEntitySet="KHOAHOC">
+                <ScalarProperty Name="MAKHOAHOC" ColumnName="MAKHOAHOC" />
+                <ScalarProperty Name="TENKHOAHOC" ColumnName="TENKHOAHOC" />
+                <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+                <ScalarProperty Name="TACGIA" ColumnName="TACGIA" />
+                <ScalarProperty Name="ANHKHOAHOC" ColumnName="ANHKHOAHOC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NGUOIDUNGs">
+            <EntityTypeMapping TypeName="CODESHARKModel.NGUOIDUNG">
+              <MappingFragment StoreEntitySet="NGUOIDUNG">
+                <ScalarProperty Name="MANGUOIDUNG" ColumnName="MANGUOIDUNG" />
+                <ScalarProperty Name="TAIKHOAN" ColumnName="TAIKHOAN" />
+                <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+                <ScalarProperty Name="TENDANGNHAP" ColumnName="TENDANGNHAP" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

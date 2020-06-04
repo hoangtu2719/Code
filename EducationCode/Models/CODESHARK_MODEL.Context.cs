@@ -13,10 +13,10 @@ namespace EducationCode.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DataCodeSharkEntities : DbContext
+    public partial class CODESHARKEntities : DbContext
     {
-        public DataCodeSharkEntities()
-            : base("name=DataCodeSharkEntities")
+        public CODESHARKEntities()
+            : base("name=CODESHARKEntities")
         {
         }
     
@@ -25,8 +25,8 @@ namespace EducationCode.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<tbKHOAHOC> tbKHOAHOCs { get; set; }
-        public virtual DbSet<tbBAIHOC> tbBAIHOCs { get; set; }
+        public virtual DbSet<BAIHOC> BAIHOCs { get; set; }
+        public virtual DbSet<KHOAHOC> KHOAHOCs { get; set; }
+        public virtual DbSet<NGUOIDUNG> NGUOIDUNGs { get; set; }
     }
 }

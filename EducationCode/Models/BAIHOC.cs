@@ -12,14 +12,16 @@ namespace EducationCode.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tbBAIHOC
+    public partial class BAIHOC
     {
-        public int MaBaiHoc { get; set; }
-        public string TenBaiHoc { get; set; }
-        public string Anh { get; set; }
-        public Nullable<int> LuotXem { get; set; }
-        public Nullable<int> MaKhoahoc { get; set; }
+        public int MABAIHOC { get; set; }
+        public Nullable<int> MAKHOAHOC { get; set; }
+        public string TENBAIHOC { get; set; }
+        public string ANHBAIHOC { get; set; }
+        public string NOIDUNG { get; set; }
+        public string NOIDUNG1 { get; set; }
+        public string NOIDUNG2 { get; set; }
     
-        public virtual tbKHOAHOC tbKHOAHOC { get; set; }
+        public virtual KHOAHOC KHOAHOC { get; set; }
     }
 }
