@@ -163,6 +163,9 @@
     <Compile Include="Models\NGUOIDUNG.cs">
       <DependentUpon>CODESHARK_MODEL.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>CODESHARK_MODEL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

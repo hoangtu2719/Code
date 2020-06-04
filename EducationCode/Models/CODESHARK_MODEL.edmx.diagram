@@ -9,6 +9,8 @@
         <EntityTypeShape EntityType="CODESHARKModel.KHOAHOC" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CODESHARKModel.NGUOIDUNG" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="CODESHARKModel.FK__BAIHOC__MAKHOAHO__145C0A3F" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CODESHARKModel.sysdiagram" Width="1.5" PointX="3.375" PointY="4.75" />
+        <AssociationConnector Association="CODESHARKModel.FK__KHOAHOC__MABAIHO__15502E78" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CODESHARKModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CODESHARKModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BAIHOC">
           <Key>
             <PropertyRef Name="MABAIHOC" />
@@ -26,6 +26,7 @@
           <Property Name="NOIDUNG" Type="nvarchar" MaxLength="100" />
           <Property Name="TACGIA" Type="nvarchar" MaxLength="30" />
           <Property Name="ANHKHOAHOC" Type="varchar(max)" />
+          <Property Name="MABAIHOC" Type="int" />
         </EntityType>
         <EntityType Name="NGUOIDUNG">
           <Key>
@@ -36,6 +37,16 @@
           <Property Name="MATKHAU" Type="nvarchar" MaxLength="30" />
           <Property Name="TENDANGNHAP" Type="nvarchar" MaxLength="30" />
           <Property Name="EMAIL" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK__BAIHOC__MAKHOAHO__145C0A3F">
           <End Role="KHOAHOC" Type="Self.KHOAHOC" Multiplicity="0..1" />
@@ -49,17 +60,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__KHOAHOC__MABAIHO__15502E78">
+          <End Role="BAIHOC" Type="Self.BAIHOC" Multiplicity="0..1" />
+          <End Role="KHOAHOC" Type="Self.KHOAHOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAIHOC">
+              <PropertyRef Name="MABAIHOC" />
+            </Principal>
+            <Dependent Role="KHOAHOC">
+              <PropertyRef Name="MABAIHOC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="CODESHARKModelStoreContainer">
           <EntitySet Name="BAIHOC" EntityType="Self.BAIHOC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHOAHOC" EntityType="Self.KHOAHOC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NGUOIDUNG" EntityType="Self.NGUOIDUNG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__BAIHOC__MAKHOAHO__145C0A3F" Association="Self.FK__BAIHOC__MAKHOAHO__145C0A3F">
             <End Role="KHOAHOC" EntitySet="KHOAHOC" />
             <End Role="BAIHOC" EntitySet="BAIHOC" />
           </AssociationSet>
+          <AssociationSet Name="FK__KHOAHOC__MABAIHO__15502E78" Association="Self.FK__KHOAHOC__MABAIHO__15502E78">
+            <End Role="BAIHOC" EntitySet="BAIHOC" />
+            <End Role="KHOAHOC" EntitySet="KHOAHOC" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CODESHARKModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -75,6 +102,7 @@
           <Property Name="NOIDUNG1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="NOIDUNG2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="KHOAHOC" Relationship="Self.FK__BAIHOC__MAKHOAHO__145C0A3F" FromRole="BAIHOC" ToRole="KHOAHOC" />
+          <NavigationProperty Name="KHOAHOCs" Relationship="CODESHARKModel.FK__KHOAHOC__MABAIHO__15502E78" FromRole="BAIHOC" ToRole="KHOAHOC" />
         </EntityType>
         <EntityType Name="KHOAHOC">
           <Key>
@@ -86,6 +114,8 @@
           <Property Name="TACGIA" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="ANHKHOAHOC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="BAIHOCs" Relationship="Self.FK__BAIHOC__MAKHOAHO__145C0A3F" FromRole="KHOAHOC" ToRole="BAIHOC" />
+          <Property Name="MABAIHOC" Type="Int32" />
+          <NavigationProperty Name="BAIHOC" Relationship="CODESHARKModel.FK__KHOAHOC__MABAIHO__15502E78" FromRole="KHOAHOC" ToRole="BAIHOC" />
         </EntityType>
         <EntityType Name="NGUOIDUNG">
           <Key>
@@ -117,7 +147,34 @@
             <End Role="KHOAHOC" EntitySet="KHOAHOCs" />
             <End Role="BAIHOC" EntitySet="BAIHOCs" />
           </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="CODESHARKModel.sysdiagram" />
+          <AssociationSet Name="FK__KHOAHOC__MABAIHO__15502E78" Association="CODESHARKModel.FK__KHOAHOC__MABAIHO__15502E78">
+            <End Role="BAIHOC" EntitySet="BAIHOCs" />
+            <End Role="KHOAHOC" EntitySet="KHOAHOCs" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK__KHOAHOC__MABAIHO__15502E78">
+          <End Type="CODESHARKModel.BAIHOC" Role="BAIHOC" Multiplicity="0..1" />
+          <End Type="CODESHARKModel.KHOAHOC" Role="KHOAHOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAIHOC">
+              <PropertyRef Name="MABAIHOC" />
+            </Principal>
+            <Dependent Role="KHOAHOC">
+              <PropertyRef Name="MABAIHOC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -140,6 +197,7 @@
           <EntitySetMapping Name="KHOAHOCs">
             <EntityTypeMapping TypeName="CODESHARKModel.KHOAHOC">
               <MappingFragment StoreEntitySet="KHOAHOC">
+                <ScalarProperty Name="MABAIHOC" ColumnName="MABAIHOC" />
                 <ScalarProperty Name="MAKHOAHOC" ColumnName="MAKHOAHOC" />
                 <ScalarProperty Name="TENKHOAHOC" ColumnName="TENKHOAHOC" />
                 <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
@@ -156,6 +214,17 @@
                 <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
                 <ScalarProperty Name="TENDANGNHAP" ColumnName="TENDANGNHAP" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CODESHARKModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

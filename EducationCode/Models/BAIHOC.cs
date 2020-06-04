@@ -14,6 +14,12 @@ namespace EducationCode.Models
     
     public partial class BAIHOC
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public BAIHOC()
+        {
+            this.KHOAHOCs = new HashSet<KHOAHOC>();
+        }
+    
         public int MABAIHOC { get; set; }
         public Nullable<int> MAKHOAHOC { get; set; }
         public string TENBAIHOC { get; set; }
@@ -23,5 +29,7 @@ namespace EducationCode.Models
         public string NOIDUNG2 { get; set; }
     
         public virtual KHOAHOC KHOAHOC { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KHOAHOC> KHOAHOCs { get; set; }
     }
 }

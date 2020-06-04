@@ -10,14 +10,14 @@ namespace EducationCode.Controllers
     public class MenuController : Controller
     {
         // GET: Menu
-        DataCodeSharkEntities db = new DataCodeSharkEntities();
+        CODESHARKEntities db = new CODESHARKEntities();
         public PartialViewResult Menu()
         {
             return PartialView();
         }
         public PartialViewResult DanhSachKhoaHoc()
         {
-            return PartialView(db.tbKHOAHOCs.ToList());
+            return PartialView(db.KHOAHOCs.ToList());
         }
     }
 }

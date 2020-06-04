@@ -25,8 +25,10 @@ namespace EducationCode.Models
         public string NOIDUNG { get; set; }
         public string TACGIA { get; set; }
         public string ANHKHOAHOC { get; set; }
+        public Nullable<int> MABAIHOC { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BAIHOC> BAIHOCs { get; set; }
+        public virtual BAIHOC BAIHOC { get; set; }
     }
 }
