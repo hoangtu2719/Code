@@ -26,6 +26,8 @@ namespace EducationCode.Models
         public string TACGIA { get; set; }
         public string ANHKHOAHOC { get; set; }
         public Nullable<int> MABAIHOC { get; set; }
+        public Nullable<System.DateTime> NGAYDANG { get; set; }
+        public Nullable<int> LUOTXEM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BAIHOC> BAIHOCs { get; set; }

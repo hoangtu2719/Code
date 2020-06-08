@@ -10,14 +10,14 @@ namespace EducationCode.Controllers
     public class ChiTietKhoaHocController : Controller
     {
         // GET: ChiTietKhoaHoc
-        DataCodeSharkEntities db = new DataCodeSharkEntities();
+        CODESHARKEntities db = new CODESHARKEntities();
         public ActionResult Index()
         {
             return View();
         }
         public ViewResult ChiTietBaiVietMN(int makhoahoc = 0)
         {
-            List<tbBAIHOC> baihoc = db.tbBAIHOCs.Where(n => n.MaKhoahoc== makhoahoc).ToList();
+            List<BAIHOC> baihoc = db.BAIHOCs.Where(n => n.MAKHOAHOC== makhoahoc).ToList();
             return View(baihoc);
         }
     }

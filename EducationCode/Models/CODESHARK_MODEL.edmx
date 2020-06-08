@@ -27,6 +27,8 @@
           <Property Name="TACGIA" Type="nvarchar" MaxLength="30" />
           <Property Name="ANHKHOAHOC" Type="varchar(max)" />
           <Property Name="MABAIHOC" Type="int" />
+          <Property Name="NGAYDANG" Type="date" />
+          <Property Name="LUOTXEM" Type="int" />
         </EntityType>
         <EntityType Name="NGUOIDUNG">
           <Key>
@@ -116,6 +118,8 @@
           <NavigationProperty Name="BAIHOCs" Relationship="Self.FK__BAIHOC__MAKHOAHO__145C0A3F" FromRole="KHOAHOC" ToRole="BAIHOC" />
           <Property Name="MABAIHOC" Type="Int32" />
           <NavigationProperty Name="BAIHOC" Relationship="CODESHARKModel.FK__KHOAHOC__MABAIHO__15502E78" FromRole="KHOAHOC" ToRole="BAIHOC" />
+          <Property Name="NGAYDANG" Type="DateTime" Precision="0" />
+          <Property Name="LUOTXEM" Type="Int32" />
         </EntityType>
         <EntityType Name="NGUOIDUNG">
           <Key>
@@ -197,6 +201,8 @@
           <EntitySetMapping Name="KHOAHOCs">
             <EntityTypeMapping TypeName="CODESHARKModel.KHOAHOC">
               <MappingFragment StoreEntitySet="KHOAHOC">
+                <ScalarProperty Name="LUOTXEM" ColumnName="LUOTXEM" />
+                <ScalarProperty Name="NGAYDANG" ColumnName="NGAYDANG" />
                 <ScalarProperty Name="MABAIHOC" ColumnName="MABAIHOC" />
                 <ScalarProperty Name="MAKHOAHOC" ColumnName="MAKHOAHOC" />
                 <ScalarProperty Name="TENKHOAHOC" ColumnName="TENKHOAHOC" />

@@ -1,37 +1,18 @@
-﻿@using EducationCode.Models;
-@model List<tbKHOAHOC>
+﻿@using EducationCode.Models
+@model List<KHOAHOC>
 <section class="w3l-content-6">
 <!-- /content-6-section -->
-<div class="content-6-mian py-5">
-    <div class="container py-lg-5">
-
-        <div class="row title-content">
-            <div class="col-lg-4 title-left">
-                <h3 class="hny-title">Khóa học mới nhất</h3>
-                <a href="/LocKhoaHoc/LocTatCaKhoaHoc    ">Tất cả khó học</a>
-            </div>
-            <div class="col-lg-8 title-info">
-                <h4 class="text-primary">Tầm nhìn</h4>
-                <p>
-                    Với mong muốn mang lại kiến thức chất lượng cho những người đang và muốn trở thành lập trình viên.
-                    Chúng tôi - CodeShark đã lập nên Website với mong muốn khai phá thế giới, phá bỏ mọi thứ ngăn cản
-                    sự phát triển của xã hội
-                </p>
-            </div>
-        </div>
 
         <div class="content-info-in row mt-md-5 mt-4">
 
-            @foreach (var item in Model.OrderByDescending(n=>n.NgayDang).Take(4))
+            @foreach (var item in Model.OrderByDescending(n=>n.NGAYDANG).Take(4))
             {
                 <div class="col-lg-3 col-md-6 imghrs" style="margin-top:1%;">
-                    <a class="imghr" href="@Url.Action("ChiTietBaiVietMN","ChiTietKhoaHoc", new {makhoahoc = item.MaKhoaHoc})">
-                        <img src="~/Content/assets/images/@item.AnhKhoaHoc" class="img-fluid" alt="" style="height:270px">
-                        <div class="details"><span class="title">@item.TenKhoaHoc</span><span class="info">@item.GioiThieu</span></div>
+                    <a class="imghr" href="@Url.Action("ChiTietBaiVietMN","ChiTietKhoaHoc", new {makhoahoc = item.MAKHOAHOC})">
+                        <img src="~/Content/assets/images/@item.ANHKHOAHOC" class="img-fluid" alt="" style="height:270px">
+                        <div class="details"><span class="title">@item.TENKHOAHOC</span><span class="info">@item.TACGIA</span></div>
                     </a>
                 </div>
             }
         </div>
-    </div>
-</div>
 </section>

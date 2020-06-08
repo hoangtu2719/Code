@@ -1,32 +1,29 @@
 ﻿@using EducationCode.Models;
-@model List<tbKHOAHOC>
+@model List<KHOAHOC>
 
 <section class="w3l-content-6">
     <!-- /content-6-section -->
     <div class="content-6-mian py-5">
-        <div class="container py-lg-5">
+            <div class="anhBanner">
 
-            <div class="row title-content">
-                <div class="col-lg-4 title-left">
-                    <h3 class="hny-title">Khá học xem nhiều nhất</h3>
-                </div>
-                <div class="col-lg-8 title-info">
-                    <a href="#">Tất cả khóa học</a>
-                </div>
             </div>
+            <div class="row mt-md-5" >
 
-            <div class="content-info-in row mt-md-5 mt-4">
-
-                @foreach (var item in Model.OrderByDescending(n => n.LuotXem).Take(4))
+                @foreach (var item in Model.OrderByDescending(n => n.LUOTXEM).Take(4))
                 {
-                    <div class="col-lg-3 col-md-6 imghrs" style="margin-top:1%;">
-                        <a class="imghr" href="#">
-                            <img src="~/Content/assets/images/@item.AnhKhoaHoc" class="img-fluid" alt="" style="height:270px">
-                            <div class="details"><span class="title">@item.TenKhoaHoc</span><span class="info">@item.GioiThieu</span></div>
-                        </a>
-                    </div>
+                <div class="card" style="margin-left:1%; border-style:none;">
+                        <div class="card" style="width: 18rem;border-style:none">
+                            <img class="card-img-top" src="~/Content/assets/images/@item.ANHKHOAHOC" style="width:286px;height:220px;"  >
+                            <div class="card-body">
+                                <h5 class="card-title">@item.TENKHOAHOC</h5>
+                                <p class="card-text">@item.NOIDUNG</p>
+                                <a href="#" style="color:blue; text-decoration:underline">Tìm hiểu thêm</a>
+                            </div>
+                        </div>
+                </div>
                 }
             </div>
         </div>
-    </div>
+
 </section>
+<!--TEXT-->

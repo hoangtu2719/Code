@@ -1,5 +1,5 @@
 ﻿@using EducationCode.Models;
-@model List<tbBAIHOC>
+@model List<BAIHOC>
 @{
     ViewBag.Title = "ChiTietBaiVietMN";
     Layout = "~/Views/Layout/Layout.cshtml";
@@ -135,8 +135,8 @@
                         {
                             <div class="col-lg-3 col-md-6 imghrs" style="margin-top:1%;">
                                 <a class="imghr" href="#">
-                                    <img src="~/Content/assets/images/@item.Anh" class="img-fluid" alt="">
-                                    <div class="details"><span class="title">@item.TenBaiHoc</span><span class="info">@item.MaBaiHoc</span></div>
+                                    <img src="~/Content/assets/images/@item.ANHBAIHOC" class="img-fluid" alt="">
+                                    <div class="details"><span class="title">@item.TENBAIHOC</span><span class="info">@item.MABAIHOC</span></div>
                                 </a>
                             </div>
                         }

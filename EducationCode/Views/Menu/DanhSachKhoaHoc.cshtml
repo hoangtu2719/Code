@@ -1,5 +1,5 @@
 ﻿@using EducationCode.Models;
-@model List<tbKHOAHOC>
+@model List<KHOAHOC>
 @{
     Layout = null;
 }
@@ -12,7 +12,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 @foreach(var item in Model)
                     {
-                    <a class="dropdown-item" href="@Url.Action("ChiTietBaiVietMN","ChiTietKhoaHoc", new {makhoahoc = item.MaKhoaHoc})">@item.TenKhoaHoc</a>
+                    <a class="dropdown-item" href="@Url.Action("ChiTietBaiVietMN","ChiTietKhoaHoc", new {makhoahoc = item.MAKHOAHOC})">@item.TENKHOAHOC</a>
                 }
             </div>
         </div>

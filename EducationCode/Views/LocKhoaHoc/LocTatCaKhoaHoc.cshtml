@@ -1,5 +1,5 @@
 ﻿@using EducationCode.Models;
-@model List<tbKHOAHOC>
+@model List<KHOAHOC>
 @{
     ViewBag.Title = "LocTatCaKhoaHoc";
     Layout = "~/Views/Layout/Layout.cshtml";
@@ -12,12 +12,12 @@
         <div class="container py-lg-5">
             <div class="content-info-in row mt-md-5 mt-4">
 
-                @foreach (var item in Model.OrderByDescending(n => n.NgayDang))
+                @foreach (var item in Model.OrderByDescending(n => n.NGAYDANG))
                 {
                     <div class="col-lg-3 col-md-6 imghrs" style="margin-top:1%;">
                         <a class="imghr" href="#">
-                            <img src="~/Content/assets/images/@item.AnhKhoaHoc" class="img-fluid" alt="">
-                            <div class="details"><span class="title">@item.TenKhoaHoc</span><span class="info">@item.GioiThieu</span></div>
+                            <img src="~/Content/assets/images/@item.ANHKHOAHOC" class="img-fluid" alt="">
+                            <div class="details"><span class="title">@item.TENKHOAHOC</span><span class="info">@item.TACGIA</span></div>
                         </a>
                     </div>
                 }

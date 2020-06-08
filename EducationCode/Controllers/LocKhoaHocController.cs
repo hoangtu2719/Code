@@ -10,22 +10,22 @@ namespace EducationCode.Controllers
     public class LocKhoaHocController : Controller
     {
         // GET: LocKhoaHoc
-        DataCodeSharkEntities db = new DataCodeSharkEntities();
+        CODESHARKEntities db = new CODESHARKEntities();
         public PartialViewResult LocKhoaHocMoiNhat()
         {
-            return PartialView(db.tbKHOAHOCs.ToList());
+            return PartialView(db.KHOAHOCs.ToList());
         }
         public PartialViewResult LocKhoaHocXemNhieu()
         {
-            return PartialView(db.tbKHOAHOCs.ToList());
+            return PartialView(db.KHOAHOCs.ToList());
         }
         public ActionResult LocTatCaKhoaHoc()
         {
-            return View(db.tbKHOAHOCs.ToList());
+            return View(db.KHOAHOCs.ToList());
         }
         public ActionResult TatCacKhoaHocXemNhieu()
         {
-            return View(db.tbKHOAHOCs.ToList());
+            return View(db.KHOAHOCs.ToList());
         }
     }
 }
