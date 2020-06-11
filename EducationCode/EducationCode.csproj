@@ -135,6 +135,8 @@
     <Compile Include="Controllers\LienHeController.cs" />
     <Compile Include="Controllers\LocKhoaHocController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\NguoiDung\DangNhapController.cs" />
+    <Compile Include="Controllers\NguoiDung\DangXuatController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -260,9 +262,12 @@
     <Content Include="Views\LocKhoaHoc\TatCacKhoaHocXemNhieu.cshtml" />
     <Content Include="Views\ChiTietKhoaHoc\ChiTietBaiVietMN.cshtml" />
     <Content Include="Views\Menu\DanhSachKhoaHoc.cshtml" />
+    <Content Include="Views\Layout\NguoiDungLayOut.cshtml" />
+    <Content Include="Views\DangNhap\DangNhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\DangXuat\" />
     <Folder Include="Views\DanhMuc\" />
   </ItemGroup>
   <ItemGroup>

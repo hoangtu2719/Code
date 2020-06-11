@@ -1,0 +1,27 @@
+﻿@using EducationCode.Models;
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Layout/NguoiDungLayOut.cshtml";
+}
+@if (Session["NguoiDung"] != null)
+{
+    Response.Redirect("/TrangChu/Index");
+}
+else
+{
+    <form action="@Url.Action("DangNhap","DangNhap")" method="post">
+        <div>
+            @Html.Raw(ViewBag.ThongBao)
+            <b>Đăng nhập</b>
+            <input type="text" class="form-control" name="taikhoan" />
+            @ViewBag.TBTK
+            <br />
+            <input type="password" class="form-control" name="matkhau" />
+            @ViewBag.TBMK
+            <br />
+            <button type="submit">Đăng nhập</button>
+        </div>
+    </form>
+}
+
+
