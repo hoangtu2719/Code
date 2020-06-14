@@ -1,4 +1,4 @@
-﻿
+﻿@using EducationCode.Models;
 @{
     Layout = null;
 }
@@ -10,12 +10,46 @@
     <meta name="viewport" content="width=device-width" />
     <title>Đăng Nhập</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/CSS/NguoiDung.css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Muli:300,300i,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,500,700,900&display=swap" rel="stylesheet">
+    <link href="~/Content/assets/css/style-starter.css" rel="stylesheet" />
 </head>
-<body>
+<body style="background-color:gray" >
+    @if (Session["NguoiDung"] != null)
+    {
+        Response.Redirect("/TrangChu/Index");
+    }
+    else
+    {
+        <form action="@Url.Action("DangNhap","DangNhap")" method="post">
+            <div class="size">
+                <div class="size-dangnhap container">
+                    @Html.Raw(ViewBag.ThongBao)
+                    <div class="logo">
+                        <span class="fa fa-graduation-cap" aria-hidden="true" style="color:#F30067;"></span><b>CodeShark</b>
+                    </div>
+                    <div class="form-dangnhap">
+                        <b>Đăng nhập</b>
+                        <input type="text" class="form-control taikhoan" name="taikhoan" />
+                        @ViewBag.TBTK
+                        <br />
+                        <input type="password" class="form-control matkhau" name="matkhau" />
+                        @ViewBag.TBMK
+                        <br />
+                        <span style="font-size:14px;">Không có tài khoản?<a href="#" class="text-primary">Tạo tài khoản!</a></span>
+                        <br />
+                        <span><a href="#" class="text-primary" style="font-size:14px;">Quên mật khẩu?</a></span>
+                        <br />
+                        <button type="submit" class="btn-primary button">Đăng nhập</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
 
     @RenderBody()
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-
 </body>
 </html>

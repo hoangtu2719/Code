@@ -1,0 +1,31 @@
+﻿
+form .size{
+    background-color:white;
+    height:364px;
+    width:440px;
+    margin-left:450px;
+    margin-top:130px;
+    background-color:white;
+}
+form .size .size-dangnhap{
+    height:350px;
+    width:450px;
+    padding-top:20px;
+}
+form .size .size-dangnhap .logo{
+    font-size:30px
+}
+form .size .size-dangnhap .form-dangnhap b{
+    font-size:25px;
+}
+form .size .size-dangnhap .form-dangnhap input{
+    height:36px;
+    width:400px;
+}
+form .size .size-dangnhap .form-dangnhap button{
+    border-style:none;
+    font-size:15px;
+    float:right;
+    margin-right:20px;
+    background-color:#0067B8;
+}
