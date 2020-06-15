@@ -39,6 +39,9 @@
           <Property Name="MATKHAU" Type="nvarchar" MaxLength="30" />
           <Property Name="TENDANGNHAP" Type="nvarchar" MaxLength="30" />
           <Property Name="EMAIL" Type="varchar" MaxLength="40" />
+          <Property Name="DIACHI" Type="nvarchar" MaxLength="100" />
+          <Property Name="SOCMND" Type="char" MaxLength="12" />
+          <Property Name="SODIENTHOAI" Type="char" MaxLength="10" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -130,6 +133,9 @@
           <Property Name="MATKHAU" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="TENDANGNHAP" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="EMAIL" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SOCMND" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="SODIENTHOAI" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
         </EntityType>
         <Association Name="FK__BAIHOC__MAKHOAHO__145C0A3F">
           <End Role="KHOAHOC" Type="Self.KHOAHOC" Multiplicity="0..1" />
@@ -215,6 +221,9 @@
           <EntitySetMapping Name="NGUOIDUNGs">
             <EntityTypeMapping TypeName="CODESHARKModel.NGUOIDUNG">
               <MappingFragment StoreEntitySet="NGUOIDUNG">
+                <ScalarProperty Name="SODIENTHOAI" ColumnName="SODIENTHOAI" />
+                <ScalarProperty Name="SOCMND" ColumnName="SOCMND" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
                 <ScalarProperty Name="MANGUOIDUNG" ColumnName="MANGUOIDUNG" />
                 <ScalarProperty Name="TAIKHOAN" ColumnName="TAIKHOAN" />
                 <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />

@@ -19,5 +19,8 @@ namespace EducationCode.Models
         public string MATKHAU { get; set; }
         public string TENDANGNHAP { get; set; }
         public string EMAIL { get; set; }
+        public string DIACHI { get; set; }
+        public string SOCMND { get; set; }
+        public string SODIENTHOAI { get; set; }
     }
 }
