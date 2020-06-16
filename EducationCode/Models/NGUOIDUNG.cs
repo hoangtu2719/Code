@@ -22,5 +22,6 @@ namespace EducationCode.Models
         public string DIACHI { get; set; }
         public string SOCMND { get; set; }
         public string SODIENTHOAI { get; set; }
+        public string AnhNguoiDung { get; set; }
     }
 }

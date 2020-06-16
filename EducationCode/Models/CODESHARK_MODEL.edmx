@@ -42,6 +42,7 @@
           <Property Name="DIACHI" Type="nvarchar" MaxLength="100" />
           <Property Name="SOCMND" Type="char" MaxLength="12" />
           <Property Name="SODIENTHOAI" Type="char" MaxLength="10" />
+          <Property Name="AnhNguoiDung" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -136,6 +137,7 @@
           <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="SOCMND" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
           <Property Name="SODIENTHOAI" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="AnhNguoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__BAIHOC__MAKHOAHO__145C0A3F">
           <End Role="KHOAHOC" Type="Self.KHOAHOC" Multiplicity="0..1" />
@@ -221,6 +223,7 @@
           <EntitySetMapping Name="NGUOIDUNGs">
             <EntityTypeMapping TypeName="CODESHARKModel.NGUOIDUNG">
               <MappingFragment StoreEntitySet="NGUOIDUNG">
+                <ScalarProperty Name="AnhNguoiDung" ColumnName="AnhNguoiDung" />
                 <ScalarProperty Name="SODIENTHOAI" ColumnName="SODIENTHOAI" />
                 <ScalarProperty Name="SOCMND" ColumnName="SOCMND" />
                 <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />

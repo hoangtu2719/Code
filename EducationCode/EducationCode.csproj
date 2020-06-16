@@ -138,7 +138,6 @@
     <Compile Include="Controllers\NguoiDung\DangKiController.cs" />
     <Compile Include="Controllers\NguoiDung\DangNhapController.cs" />
     <Compile Include="Controllers\NguoiDung\DangXuatController.cs" />
-    <Compile Include="Controllers\NguoiDung\NGUOIDUNGsController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -267,11 +266,6 @@
     <Content Include="Views\Menu\DanhSachKhoaHoc.cshtml" />
     <Content Include="Views\Layout\NguoiDungLayOut.cshtml" />
     <Content Include="Views\DangNhap\DangNhap.cshtml" />
-    <Content Include="Views\NGUOIDUNGs\Create.cshtml" />
-    <Content Include="Views\NGUOIDUNGs\Delete.cshtml" />
-    <Content Include="Views\NGUOIDUNGs\Details.cshtml" />
-    <Content Include="Views\NGUOIDUNGs\Edit.cshtml" />
-    <Content Include="Views\NGUOIDUNGs\Index.cshtml" />
     <Content Include="Views\DangKi\DangKi.cshtml" />
     <Content Include="Views\DangKi\DangKiThanhCong.cshtml" />
   </ItemGroup>
