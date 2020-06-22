@@ -16,6 +16,7 @@
           <Property Name="NOIDUNG" Type="text" />
           <Property Name="NOIDUNG1" Type="text" />
           <Property Name="NOIDUNG2" Type="text" />
+          <Property Name="TACGIA" Type="nvarchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="KHOAHOC">
           <Key>
@@ -109,6 +110,7 @@
           <Property Name="NOIDUNG2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="KHOAHOC" Relationship="Self.FK__BAIHOC__MAKHOAHO__145C0A3F" FromRole="BAIHOC" ToRole="KHOAHOC" />
           <NavigationProperty Name="KHOAHOCs" Relationship="CODESHARKModel.FK__KHOAHOC__MABAIHO__15502E78" FromRole="BAIHOC" ToRole="KHOAHOC" />
+          <Property Name="TACGIA" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="KHOAHOC">
           <Key>
@@ -196,6 +198,7 @@
           <EntitySetMapping Name="BAIHOCs">
             <EntityTypeMapping TypeName="CODESHARKModel.BAIHOC">
               <MappingFragment StoreEntitySet="BAIHOC">
+                <ScalarProperty Name="TACGIA" ColumnName="TACGIA" />
                 <ScalarProperty Name="MABAIHOC" ColumnName="MABAIHOC" />
                 <ScalarProperty Name="MAKHOAHOC" ColumnName="MAKHOAHOC" />
                 <ScalarProperty Name="TENBAIHOC" ColumnName="TENBAIHOC" />

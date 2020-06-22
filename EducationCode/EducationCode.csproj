@@ -268,6 +268,12 @@
     <Content Include="Views\DangNhap\DangNhap.cshtml" />
     <Content Include="Views\DangKi\DangKi.cshtml" />
     <Content Include="Views\DangKi\DangKiThanhCong.cshtml" />
+    <Content Include="Views\NGUOIDUNGs\Create.cshtml" />
+    <Content Include="Views\NGUOIDUNGs\Delete.cshtml" />
+    <Content Include="Views\NGUOIDUNGs\Details.cshtml" />
+    <Content Include="Views\NGUOIDUNGs\Edit.cshtml" />
+    <Content Include="Views\NGUOIDUNGs\Index.cshtml" />
+    <Content Include="Views\ChiTietKhoaHoc\ChiTietBaiVietXN.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

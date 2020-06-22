@@ -20,5 +20,10 @@ namespace EducationCode.Controllers
             List<BAIHOC> baihoc = db.BAIHOCs.Where(n => n.MAKHOAHOC== makhoahoc).ToList();
             return View(baihoc);
         }
+        public ViewResult ChiTietBaiVietXN(int makhoahoc = 0)
+        {
+            List<BAIHOC> baihoc = db.BAIHOCs.Where(n => n.MABAIHOC==makhoahoc).ToList();
+            return View(baihoc);
+        }
     }
 }

@@ -17,7 +17,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">@item.TENKHOAHOC</h5>
                                 <p class="card-text">@item.NOIDUNG</p>
-                                <a href="#" style="color:blue; text-decoration:underline;">Tìm hiểu thêm</a>
+                                <a href="@Url.Action("ChiTietBaiVietXN","ChiTietKhoaHoc", new {makhoahoc = item.MAKHOAHOC})" style="color:blue; text-decoration:underline;">Tìm hiểu thêm</a>
                             </div>
                         </div>
                 </div>
