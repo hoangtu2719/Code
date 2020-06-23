@@ -29,5 +29,7 @@ namespace EducationCode.Models
         public virtual DbSet<KHOAHOC> KHOAHOCs { get; set; }
         public virtual DbSet<NGUOIDUNG> NGUOIDUNGs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<BINHLUAN> BINHLUANs { get; set; }
+        public virtual DbSet<TRALOI> TRALOIs { get; set; }
     }
 }

@@ -11,6 +11,11 @@
         <AssociationConnector Association="CODESHARKModel.FK__BAIHOC__MAKHOAHO__145C0A3F" ManuallyRouted="false" />
         <EntityTypeShape EntityType="CODESHARKModel.sysdiagram" Width="1.5" PointX="3.375" PointY="4.75" />
         <AssociationConnector Association="CODESHARKModel.FK__KHOAHOC__MABAIHO__15502E78" />
+        <EntityTypeShape EntityType="CODESHARKModel.BINHLUAN" Width="1.5" PointX="3" PointY="8" />
+        <EntityTypeShape EntityType="CODESHARKModel.TRALOI" Width="1.5" PointX="5.25" PointY="8" />
+        <AssociationConnector Association="CODESHARKModel.FK_BINHLUAN_NGUOIDUNG" />
+        <AssociationConnector Association="CODESHARKModel.FK_MABINHLUAN" />
+        <AssociationConnector Association="CODESHARKModel.FK_MATRALOI" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

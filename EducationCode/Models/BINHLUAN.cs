@@ -12,25 +12,25 @@ namespace EducationCode.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class NGUOIDUNG
+    public partial class BINHLUAN
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NGUOIDUNG()
+        public BINHLUAN()
         {
-            this.BINHLUANs = new HashSet<BINHLUAN>();
+            this.TRALOIs = new HashSet<TRALOI>();
+            this.TRALOIs1 = new HashSet<TRALOI>();
         }
     
+        public int MABINHLUAN { get; set; }
         public int MANGUOIDUNG { get; set; }
-        public string TAIKHOAN { get; set; }
-        public string MATKHAU { get; set; }
-        public string TENDANGNHAP { get; set; }
-        public string EMAIL { get; set; }
-        public string DIACHI { get; set; }
-        public string SOCMND { get; set; }
-        public string SODIENTHOAI { get; set; }
-        public string AnhNguoiDung { get; set; }
+        public int MABAIHOC { get; set; }
+        public string NOIDUNG { get; set; }
+        public Nullable<System.DateTime> NGAYDANG { get; set; }
     
+        public virtual NGUOIDUNG NGUOIDUNG { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BINHLUAN> BINHLUANs { get; set; }
+        public virtual ICollection<TRALOI> TRALOIs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TRALOI> TRALOIs1 { get; set; }
     }
 }

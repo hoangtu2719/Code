@@ -128,10 +128,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BinhLuanController.cs" />
+    <Compile Include="Controllers\ChiTietBaiHocController.cs" />
     <Compile Include="Controllers\ChiTietKhoaHocController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\KHController.cs" />
-    <Compile Include="Controllers\LearnController.cs" />
     <Compile Include="Controllers\LienHeController.cs" />
     <Compile Include="Controllers\LocKhoaHocController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
@@ -143,6 +143,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BAIHOC.cs">
+      <DependentUpon>CODESHARK_MODEL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BINHLUAN.cs">
       <DependentUpon>CODESHARK_MODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CODESHARK_MODEL.Context.cs">
@@ -167,6 +170,9 @@
       <DependentUpon>CODESHARK_MODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>CODESHARK_MODEL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRALOI.cs">
       <DependentUpon>CODESHARK_MODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -255,28 +261,22 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Layout\Layout.cshtml" />
     <Content Include="Views\TrangChu\Index.cshtml" />
-    <Content Include="Views\Menu\Menu.cshtml" />
     <Content Include="Views\LienHe\LienHe.cshtml" />
     <Content Include="Views\LocKhoaHoc\LocKhoaHocMoiNhat.cshtml" />
     <Content Include="Views\LocKhoaHoc\LocKhoaHocXemNhieu.cshtml" />
-    <Content Include="Views\KH\KHxemnhieu.cshtml" />
-    <Content Include="Views\LocKhoaHoc\LocTatCaKhoaHoc.cshtml" />
-    <Content Include="Views\LocKhoaHoc\TatCacKhoaHocXemNhieu.cshtml" />
     <Content Include="Views\ChiTietKhoaHoc\ChiTietBaiVietMN.cshtml" />
     <Content Include="Views\Menu\DanhSachKhoaHoc.cshtml" />
     <Content Include="Views\Layout\NguoiDungLayOut.cshtml" />
     <Content Include="Views\DangNhap\DangNhap.cshtml" />
     <Content Include="Views\DangKi\DangKi.cshtml" />
     <Content Include="Views\DangKi\DangKiThanhCong.cshtml" />
-    <Content Include="Views\NGUOIDUNGs\Create.cshtml" />
-    <Content Include="Views\NGUOIDUNGs\Delete.cshtml" />
-    <Content Include="Views\NGUOIDUNGs\Details.cshtml" />
-    <Content Include="Views\NGUOIDUNGs\Edit.cshtml" />
-    <Content Include="Views\NGUOIDUNGs\Index.cshtml" />
     <Content Include="Views\ChiTietKhoaHoc\ChiTietBaiVietXN.cshtml" />
+    <Content Include="Views\Menu\Banner.cshtml" />
+    <Content Include="Views\ChiTietBaiHoc\ChiTietBaiHoc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\BinhLuan\" />
     <Folder Include="Views\DangXuat\" />
     <Folder Include="Views\DanhMuc\" />
   </ItemGroup>

@@ -2,10 +2,10 @@
 
 namespace EducationCode.Controllers
 {
-    public class LienHeController : Controller
+    public class BinhLuanController : Controller
     {
-        // GET: LienHe
-        public ActionResult LienHe()
+        // GET: BinhLuan
+        public ActionResult BinhLuan()
         {
             return View();
         }

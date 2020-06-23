@@ -6,11 +6,9 @@
 }
 
 <section class="w3l-content-6">
-    <!-- /content-6-section -->
     <div class="content-6-mian py-5">
         <div class="container py-lg-5">
             <div class="content-info-in row mt-md-5 mt-4">
-
                 @foreach (var item in Model)
                 {
                     <div class="col-lg-3 col-md-6 imghrs" style="margin-top:1%;float:left;width:35%">
@@ -25,9 +23,9 @@
                         <span>Tác giả:@item.TACGIA</span>
                         <br />
                         <span>Tóm tắt:  @item.NOIDUNG</span>
-
+                        <a href="@Url.Action("ChiTietBaiHoc","ChiTietBaiHoc", new { machitiet = item.MABAIHOC})">Bấm</a>
                     </div>
-                }s
+                }
             </div>
         </div>
     </div>
