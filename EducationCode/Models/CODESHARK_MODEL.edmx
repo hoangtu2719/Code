@@ -13,10 +13,15 @@
           <Property Name="MAKHOAHOC" Type="int" />
           <Property Name="TENBAIHOC" Type="nvarchar" MaxLength="100" />
           <Property Name="ANHBAIHOC" Type="nvarchar(max)" />
-          <Property Name="NOIDUNG" Type="text" />
-          <Property Name="NOIDUNG1" Type="text" />
-          <Property Name="NOIDUNG2" Type="text" />
+          <Property Name="NOIDUNG" Type="nvarchar(max)" />
+          <Property Name="NOIDUNG1" Type="nvarchar(max)" />
+          <Property Name="NOIDUNG2" Type="nvarchar(max)" />
           <Property Name="TACGIA" Type="nvarchar" MaxLength="40" />
+          <Property Name="NDCHINH1" Type="nvarchar(max)" />
+          <Property Name="NDCHINH2" Type="nvarchar(max)" />
+          <Property Name="NDCHINH3" Type="nvarchar(max)" />
+          <Property Name="NDCHINH4" Type="nvarchar(max)" />
+          <Property Name="NDCHINH5" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="BINHLUAN">
           <Key>
@@ -175,12 +180,17 @@
           <Property Name="MAKHOAHOC" Type="Int32" />
           <Property Name="TENBAIHOC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ANHBAIHOC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="NOIDUNG1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="NOIDUNG2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NOIDUNG1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NOIDUNG2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="KHOAHOC" Relationship="Self.FK__BAIHOC__MAKHOAHO__145C0A3F" FromRole="BAIHOC" ToRole="KHOAHOC" />
           <NavigationProperty Name="KHOAHOCs" Relationship="CODESHARKModel.FK__KHOAHOC__MABAIHO__15502E78" FromRole="BAIHOC" ToRole="KHOAHOC" />
           <Property Name="TACGIA" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="NDCHINH1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NDCHINH2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NDCHINH3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NDCHINH4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NDCHINH5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="KHOAHOC">
           <Key>
@@ -344,6 +354,11 @@
           <EntitySetMapping Name="BAIHOCs">
             <EntityTypeMapping TypeName="CODESHARKModel.BAIHOC">
               <MappingFragment StoreEntitySet="BAIHOC">
+                <ScalarProperty Name="NDCHINH5" ColumnName="NDCHINH5" />
+                <ScalarProperty Name="NDCHINH4" ColumnName="NDCHINH4" />
+                <ScalarProperty Name="NDCHINH3" ColumnName="NDCHINH3" />
+                <ScalarProperty Name="NDCHINH2" ColumnName="NDCHINH2" />
+                <ScalarProperty Name="NDCHINH1" ColumnName="NDCHINH1" />
                 <ScalarProperty Name="TACGIA" ColumnName="TACGIA" />
                 <ScalarProperty Name="MABAIHOC" ColumnName="MABAIHOC" />
                 <ScalarProperty Name="MAKHOAHOC" ColumnName="MAKHOAHOC" />

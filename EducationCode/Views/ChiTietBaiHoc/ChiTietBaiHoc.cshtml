@@ -1,7 +1,20 @@
 ﻿@using EducationCode.Models;
 @model BAIHOC
 
-<ul>
-    <img src="~/Content/assets/images/@Model.ANHBAIHOC" />
-    <li>@Model.TENBAIHOC</li>
-</ul>
+<div style="margin-right:2%; margin-left:2%" class="list-group">
+    <div style="float:left; width:70%;">
+        <div>
+            <img src="~/Content/assets/images/@Model.ANHBAIHOC" />
+        </div>
+        <h3>@Model.TENBAIHOC</h3>
+        <h2 style="color:purple">Nội dung chính</h2>
+        <p>@Model.NOIDUNG</p>
+        <p>@Model.NOIDUNG1</p>
+        <p>@Model.TACGIA</p>
+       
+    </div>
+    <div style="float:right; width:25%;">
+      <h4>Bài viết mới nhất</h4>
+       <p>Đây là bài viết mới nhất</p>
+    </div>
+</div>
