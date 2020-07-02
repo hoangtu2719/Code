@@ -1,20 +1,51 @@
 ﻿@using EducationCode.Models;
 @model BAIHOC
 
-<div style="margin-right:2%; margin-left:2%" class="list-group">
-    <div style="float:left; width:70%;">
-        <div>
-            <img src="~/Content/assets/images/@Model.ANHBAIHOC" />
+    <div class="Phan tren" style="float:left">
+        <div style="margin-right:2%; margin-left:2%; font-family:Arial, Helvetica, sans-serif" class="list-group">
+            <div style="float:left; width:70%;">
+                <div>
+                    <img src="~/Content/assets/images/@Model.ANHBAIHOC" />
+                </div>
+                <h1 style="color:red">@Model.TENBAIHOC</h1>
+                <iframe width="560" height="315" src="@Model.VIDEO" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <h2 style="color:purple">Nội dung chính</h2>
+                <h2>@Model.NDCHINH1</h2>
+                <h2>@Model.NDCHINH2</h2>
+                <h2>@Model.NDCHINH3</h2>
+                <h2 style="color:purple">@Model.NDCHINH1</h2>
+                <h3>@Model.NOIDUNG</h3>
+                <h2 style="color:purple">@Model.NDCHINH2</h2>
+                <h3>@Model.NOIDUNG1</h3>
+                <h2 style="color:purple">@Model.NDCHINH3</h2>
+                <h3>@Model.NOIDUNG2</h3>
+
+            </div>
+            <div style="float:right; width:25%;">
+                <h4>Bài viết mới nhất</h4>
+                @Html.Action("LocBaiVietXemNhieu", "LocKhoaHoc")
+            </div>
         </div>
-        <h3>@Model.TENBAIHOC</h3>
-        <h2 style="color:purple">Nội dung chính</h2>
-        <p>@Model.NOIDUNG</p>
-        <p>@Model.NOIDUNG1</p>
-        <p>@Model.TACGIA</p>
-       
     </div>
-    <div style="float:right; width:25%;">
-      <h4>Bài viết mới nhất</h4>
-       <p>Đây là bài viết mới nhất</p>
+<!--Bình luận-->
+
+<div class="Phan duoi" >
+    @foreach(var item in Model.BINHLUANs)
+    {
+        <p>@item.NOIDUNG</p>
+        <p>@item.NGUOIDUNG.TENDANGNHAP</p>
+    <div>
+        @foreach (var n in item.TRALOIs)
+        {
+            <p>@n.NOIDUNG</p>
+            <p>@n.NGUOIDUNG.TENDANGNHAP</p>
+        }
     </div>
+    }
 </div>
+<!--Form bình luận-->
+<form action="@Url.Action("NhapBinhLuan","BinhLuan")" method="post">
+    <input class="form-control" name="NOIDUNG" type="text" />
+    <input name="MABAIHOC" type="hidden" value="@Model.MABAIHOC" />
+    <button type="submit">Bình Luận</button>
+</form>

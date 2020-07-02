@@ -18,6 +18,7 @@ namespace EducationCode.Models
         public BAIHOC()
         {
             this.KHOAHOCs = new HashSet<KHOAHOC>();
+            this.BINHLUANs = new HashSet<BINHLUAN>();
         }
     
         public int MABAIHOC { get; set; }
@@ -33,9 +34,13 @@ namespace EducationCode.Models
         public string NDCHINH3 { get; set; }
         public string NDCHINH4 { get; set; }
         public string NDCHINH5 { get; set; }
+        public string VIDEO { get; set; }
+        public Nullable<int> LUOTXEM { get; set; }
     
         public virtual KHOAHOC KHOAHOC { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KHOAHOC> KHOAHOCs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BINHLUAN> BINHLUANs { get; set; }
     }
 }

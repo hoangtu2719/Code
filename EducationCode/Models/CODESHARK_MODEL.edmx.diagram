@@ -16,6 +16,8 @@
         <AssociationConnector Association="CODESHARKModel.FK_BINHLUAN_NGUOIDUNG" />
         <AssociationConnector Association="CODESHARKModel.FK_MABINHLUAN" />
         <AssociationConnector Association="CODESHARKModel.FK_MATRALOI" />
+        <AssociationConnector Association="CODESHARKModel.FK_BINHLUAN_BAIHOC" />
+        <AssociationConnector Association="CODESHARKModel.FK_TRALOI_NGUOIDUNG" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

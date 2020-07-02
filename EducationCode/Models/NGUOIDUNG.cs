@@ -18,6 +18,7 @@ namespace EducationCode.Models
         public NGUOIDUNG()
         {
             this.BINHLUANs = new HashSet<BINHLUAN>();
+            this.TRALOIs = new HashSet<TRALOI>();
         }
     
         public int MANGUOIDUNG { get; set; }
@@ -32,5 +33,7 @@ namespace EducationCode.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BINHLUAN> BINHLUANs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TRALOI> TRALOIs { get; set; }
     }
 }

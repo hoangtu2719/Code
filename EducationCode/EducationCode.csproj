@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\TimKiem.cs" />
     <Compile Include="Controllers\ChiTietBaiHocController.cs" />
     <Compile Include="Controllers\ChiTietKhoaHocController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -262,7 +263,6 @@
     <Content Include="Views\TrangChu\Index.cshtml" />
     <Content Include="Views\LienHe\LienHe.cshtml" />
     <Content Include="Views\LocKhoaHoc\LocKhoaHocMoiNhat.cshtml" />
-    <Content Include="Views\LocKhoaHoc\LocKhoaHocXemNhieu.cshtml" />
     <Content Include="Views\ChiTietKhoaHoc\ChiTietBaiVietMN.cshtml" />
     <Content Include="Views\Menu\DanhSachKhoaHoc.cshtml" />
     <Content Include="Views\Layout\NguoiDungLayOut.cshtml" />
@@ -272,6 +272,9 @@
     <Content Include="Views\ChiTietKhoaHoc\ChiTietBaiVietXN.cshtml" />
     <Content Include="Views\Menu\Banner.cshtml" />
     <Content Include="Views\ChiTietBaiHoc\ChiTietBaiHoc.cshtml" />
+    <Content Include="Views\LocKhoaHoc\LocBaiVietXemNhieu.cshtml" />
+    <Content Include="Views\BinhLuan\BinhLuan.cshtml" />
+    <Content Include="Views\BinhLuan\TimKiem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -22,5 +22,6 @@ namespace EducationCode.Models
     
         public virtual BINHLUAN BINHLUAN { get; set; }
         public virtual BINHLUAN BINHLUAN1 { get; set; }
+        public virtual NGUOIDUNG NGUOIDUNG { get; set; }
     }
 }

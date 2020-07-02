@@ -1,4 +1,5 @@
 ﻿using EducationCode.Models;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -16,7 +17,12 @@ namespace EducationCode.Controllers
 
         public PartialViewResult LocKhoaHocXemNhieu()
         {
-            return PartialView(db.KHOAHOCs.ToList());
+            List<KHOAHOC> kh = db.KHOAHOCs.OrderByDescending(n => n.LUOTXEM).Take(4).ToList();
+            return PartialView("LocKhoaHocMoiNhat", kh);
+        }
+        public PartialViewResult LocBaiVietXemNhieu()
+        {
+            return PartialView(db.BAIHOCs.ToList());
         }
     }
 }
