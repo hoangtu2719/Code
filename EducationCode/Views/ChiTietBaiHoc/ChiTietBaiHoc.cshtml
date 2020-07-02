@@ -34,12 +34,16 @@
     {
         <p>@item.NOIDUNG</p>
         <p>@item.NGUOIDUNG.TENDANGNHAP</p>
+        <form>
+            <input class="form-control" />
+            <input name="MaBinhLuan" type="hidden" value="@item.MABINHLUAN" />
+        </form>
     <div>
         @foreach (var n in item.TRALOIs)
         {
             <p>@n.NOIDUNG</p>
             <p>@n.NGUOIDUNG.TENDANGNHAP</p>
-        }
+                  }
     </div>
     }
 </div>

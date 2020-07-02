@@ -128,7 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\TimKiem.cs" />
+    <Compile Include="Controllers\BinhLuanController.cs" />
     <Compile Include="Controllers\ChiTietBaiHocController.cs" />
     <Compile Include="Controllers\ChiTietKhoaHocController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -138,6 +138,7 @@
     <Compile Include="Controllers\NguoiDung\DangKiController.cs" />
     <Compile Include="Controllers\NguoiDung\DangNhapController.cs" />
     <Compile Include="Controllers\NguoiDung\DangXuatController.cs" />
+    <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -273,11 +274,11 @@
     <Content Include="Views\Menu\Banner.cshtml" />
     <Content Include="Views\ChiTietBaiHoc\ChiTietBaiHoc.cshtml" />
     <Content Include="Views\LocKhoaHoc\LocBaiVietXemNhieu.cshtml" />
-    <Content Include="Views\BinhLuan\BinhLuan.cshtml" />
-    <Content Include="Views\BinhLuan\TimKiem.cshtml" />
+    <Content Include="Views\TimKiem\TimKiem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\BinhLuan\" />
     <Folder Include="Views\DangXuat\" />
     <Folder Include="Views\DanhMuc\" />
   </ItemGroup>
