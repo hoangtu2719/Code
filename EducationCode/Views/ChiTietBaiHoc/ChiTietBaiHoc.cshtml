@@ -1,55 +1,92 @@
 ﻿@using EducationCode.Models;
 @model BAIHOC
 
-    <div class="Phan tren" style="float:left">
-        <div style="margin-right:2%; margin-left:2%; font-family:Arial, Helvetica, sans-serif" class="list-group">
-            <div style="float:left; width:70%;">
-                <div>
-                    <img src="~/Content/assets/images/@Model.ANHBAIHOC" />
-                </div>
-                <h1 style="color:red">@Model.TENBAIHOC</h1>
-                <iframe width="560" height="315" src="@Model.VIDEO" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <h2 style="color:purple">Nội dung chính</h2>
-                <h2>@Model.NDCHINH1</h2>
-                <h2>@Model.NDCHINH2</h2>
-                <h2>@Model.NDCHINH3</h2>
-                <h2 style="color:purple">@Model.NDCHINH1</h2>
-                <h3>@Model.NOIDUNG</h3>
-                <h2 style="color:purple">@Model.NDCHINH2</h2>
-                <h3>@Model.NOIDUNG1</h3>
-                <h2 style="color:purple">@Model.NDCHINH3</h2>
-                <h3>@Model.NOIDUNG2</h3>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<!--Khai báo sesion người dùng để kiểm tra-->
+@{
+    NGUOIDUNG sesnguoidung = (NGUOIDUNG)Session["NguoiDung"];
+}
+<div class="Phan tren" style="float:left">
+    <div style="margin-right:2%; margin-left:2%; font-family:Arial, Helvetica, sans-serif" class="list-group">
+        <div style="float:left; width:70%;">
+            <div>
+                <img src="~/Content/assets/images/@Model.ANHBAIHOC" />
+            </div>
+            <h1 style="color:red">@Model.TENBAIHOC</h1>
+            <iframe width="560" height="315" src="@Model.VIDEO" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h2 style="color:purple">Nội dung chính</h2>
+            <h2>@Model.NDCHINH1</h2>
+            <h2>@Model.NDCHINH2</h2>
+            <h2>@Model.NDCHINH3</h2>
+            <h2 style="color:purple">@Model.NDCHINH1</h2>
+            <h3>@Model.NOIDUNG</h3>
+            <h2 style="color:purple">@Model.NDCHINH2</h2>
+            <h3>@Model.NOIDUNG1</h3>
+            <h2 style="color:purple">@Model.NDCHINH3</h2>
+            <h3>@Model.NOIDUNG2</h3>
 
-            </div>
-            <div style="float:right; width:25%;">
-                <h4>Bài viết mới nhất</h4>
-                @Html.Action("LocBaiVietXemNhieu", "LocKhoaHoc")
-            </div>
+        </div>
+        <div style="float:right; width:25%;">
+            <h4>Bài viết mới nhất</h4>
+            @Html.Action("LocBaiVietXemNhieu", "LocKhoaHoc")
         </div>
     </div>
-<!--Bình luận-->
-
-<div class="Phan duoi" >
-    @foreach(var item in Model.BINHLUANs)
-    {
-        <p>@item.NOIDUNG</p>
-        <p>@item.NGUOIDUNG.TENDANGNHAP</p>
-        <form>
-            <input class="form-control" />
-            <input name="MaBinhLuan" type="hidden" value="@item.MABINHLUAN" />
-        </form>
-    <div>
-        @foreach (var n in item.TRALOIs)
-        {
-            <p>@n.NOIDUNG</p>
-            <p>@n.NGUOIDUNG.TENDANGNHAP</p>
-                  }
-    </div>
-    }
 </div>
+<!--Bình luận-->
 <!--Form bình luận-->
-<form action="@Url.Action("NhapBinhLuan","BinhLuan")" method="post">
-    <input class="form-control" name="NOIDUNG" type="text" />
-    <input name="MABAIHOC" type="hidden" value="@Model.MABAIHOC" />
-    <button type="submit">Bình Luận</button>
-</form>
+@if (sesnguoidung != null)
+{
+    <form action="@Url.Action("NhapBinhLuan","BinhLuan")" method="post">
+        <div>
+            <div>
+                <img src="~/Content/assets/images/angular.png" style="background-color:red; width:60px;height:60px; float:left;border-radius:50%;margin-left:20px;" />
+            </div>
+            <div>
+                <input class="form-control" name="NOIDUNG" type="text" style="width:800px;height:100px;margin-left:100px" placeholder="Thêm bình luận..." />
+            </div>
+            <input name="MABAIHOC" type="hidden" value="@Model.MABAIHOC" />
+            <div style="margin-left:100px;margin-top:5px;">
+                <button type="submit" class="btn btn-danger">Nhận xét</button>
+                <span><button class="btn btn-secondary">Hủy bỏ</button></span>
+            </div>
+        </div>
+    </form>
+
+    <div class="Phan duoi">
+        @foreach (var item in Model.BINHLUANs)
+        {
+            <p>@item.NOIDUNG</p>
+            <p>@item.NGUOIDUNG.TENDANGNHAP</p>
+            <form>
+                <input class="form-control" />
+                <input name="MaBinhLuan" type="hidden" value="@item.MABINHLUAN" />
+            </form>
+            <div>
+                @foreach (var n in item.TRALOIs)
+                {
+                    <p>@n.NOIDUNG</p>
+                    <p>@n.NGUOIDUNG.TENDANGNHAP</p>
+                }
+            </div>
+        }
+    </div>
+}
+else
+{
+    <form action="@Url.Action("NhapBinhLuan","BinhLuan")" method="post">
+        <div>
+            <div>
+                <img src="~/Content/assets/images/angular.png" style="background-color:red; width:60px;height:60px; float:left;border-radius:50%;margin-left:20px;" />
+            </div>
+            <div>
+                <input class="form-control" name="NOIDUNG" type="text" style="width:800px;height:100px;margin-left:100px;" placeholder="Để bình luận, bạn cần đăng nhập bằng tài khoản của CodeShark." />
+            </div>
+            <div style="margin-left:100px;margin-top:5px;">
+                <button type="submit" class="btn btn-danger">Nhận xét</button>
+                <span><button class="btn btn-secondary">Hủy bỏ</button></span>
+            </div>
+        </div>
+    </form>
+}
