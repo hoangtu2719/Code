@@ -31,5 +31,7 @@ namespace EducationCode.Models
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<BINHLUAN> BINHLUANs { get; set; }
         public virtual DbSet<TRALOI> TRALOIs { get; set; }
+        public virtual DbSet<CHUDETCN> CHUDETCNs { get; set; }
+        public virtual DbSet<TINCONGNGHE> TINCONGNGHEs { get; set; }
     }
 }

@@ -151,6 +151,9 @@
     <Compile Include="Models\BINHLUAN.cs">
       <DependentUpon>CODESHARK_MODEL.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CHUDETCN.cs">
+      <DependentUpon>CODESHARK_MODEL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CODESHARK_MODEL.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -175,6 +178,9 @@
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>CODESHARK_MODEL.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TINCONGNGHE.cs">
+      <DependentUpon>CODESHARK_MODEL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TRALOI.cs">
       <DependentUpon>CODESHARK_MODEL.tt</DependentUpon>
     </Compile>
@@ -183,6 +189,7 @@
   <ItemGroup>
     <Content Include="Content\assets\css\style-starter.css" />
     <Content Include="Content\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\assets\imagesapi\API.png" />
     <Content Include="Content\assets\images\angular.png" />
     <Content Include="Content\assets\images\Banner.png" />
     <Content Include="Content\assets\images\Banner2.jpg" />
@@ -277,13 +284,14 @@
     <Content Include="Views\ChiTietBaiHoc\ChiTietBaiHoc.cshtml" />
     <Content Include="Views\LocKhoaHoc\LocBaiVietXemNhieu.cshtml" />
     <Content Include="Views\TimKiem\TimKiem.cshtml" />
+    <Content Include="Views\TinCongNghe\DanhMucTinCongNghe.cshtml" />
+    <Content Include="Views\TinCongNghe\LocChuDe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\BinhLuan\" />
     <Folder Include="Views\DangXuat\" />
     <Folder Include="Views\DanhMuc\" />
-    <Folder Include="Views\TinCongNghe\" />
     <Folder Include="Views\TraLoi\" />
   </ItemGroup>
   <ItemGroup>

@@ -18,6 +18,9 @@
         <AssociationConnector Association="CODESHARKModel.FK_MATRALOI" />
         <AssociationConnector Association="CODESHARKModel.FK_BINHLUAN_BAIHOC" />
         <AssociationConnector Association="CODESHARKModel.FK_TRALOI_NGUOIDUNG" />
+        <EntityTypeShape EntityType="CODESHARKModel.CHUDETCN" Width="1.5" PointX="7.375" PointY="1.5" />
+        <EntityTypeShape EntityType="CODESHARKModel.TINCONGNGHE" Width="1.5" PointX="9.625" PointY="1" />
+        <AssociationConnector Association="CODESHARKModel.FK_MACHUDE" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

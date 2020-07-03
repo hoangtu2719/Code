@@ -35,6 +35,13 @@
           <Property Name="NOIDUNG" Type="nvarchar" MaxLength="200" />
           <Property Name="NGAYDANG" Type="smalldatetime" />
         </EntityType>
+        <EntityType Name="CHUDETCN">
+          <Key>
+            <PropertyRef Name="MACHUDE" />
+          </Key>
+          <Property Name="MACHUDE" Type="int" Nullable="false" />
+          <Property Name="TENCHUDE" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="KHOAHOC">
           <Key>
             <PropertyRef Name="MAKHOAHOC" />
@@ -71,6 +78,19 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TINCONGNGHE">
+          <Key>
+            <PropertyRef Name="MATCN" />
+          </Key>
+          <Property Name="MATCN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MACHUDE" Type="int" />
+          <Property Name="TENTCN" Type="nvarchar" MaxLength="50" />
+          <Property Name="NOIDUNG" Type="nvarchar(max)" />
+          <Property Name="ANH" Type="nvarchar(max)" />
+          <Property Name="NGAYDANG" Type="smalldatetime" />
+          <Property Name="LUOTXEM" Type="int" />
+          <Property Name="TACGIA" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TRALOI">
           <Key>
@@ -130,6 +150,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MACHUDE">
+          <End Role="CHUDETCN" Type="Self.CHUDETCN" Multiplicity="0..1" />
+          <End Role="TINCONGNGHE" Type="Self.TINCONGNGHE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUDETCN">
+              <PropertyRef Name="MACHUDE" />
+            </Principal>
+            <Dependent Role="TINCONGNGHE">
+              <PropertyRef Name="MACHUDE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TRALOI_BINHLUAN">
           <End Role="BINHLUAN" Type="Self.BINHLUAN" Multiplicity="1" />
           <End Role="TRALOI" Type="Self.TRALOI" Multiplicity="*" />
@@ -157,9 +189,11 @@
         <EntityContainer Name="CODESHARKModelStoreContainer">
           <EntitySet Name="BAIHOC" EntityType="Self.BAIHOC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BINHLUAN" EntityType="Self.BINHLUAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHUDETCN" EntityType="Self.CHUDETCN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHOAHOC" EntityType="Self.KHOAHOC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NGUOIDUNG" EntityType="Self.NGUOIDUNG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TINCONGNGHE" EntityType="Self.TINCONGNGHE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRALOI" EntityType="Self.TRALOI" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__BAIHOC__MAKHOAHO__145C0A3F" Association="Self.FK__BAIHOC__MAKHOAHO__145C0A3F">
             <End Role="KHOAHOC" EntitySet="KHOAHOC" />
@@ -176,6 +210,10 @@
           <AssociationSet Name="FK_BINHLUAN_NGUOIDUNG" Association="Self.FK_BINHLUAN_NGUOIDUNG">
             <End Role="NGUOIDUNG" EntitySet="NGUOIDUNG" />
             <End Role="BINHLUAN" EntitySet="BINHLUAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MACHUDE" Association="Self.FK_MACHUDE">
+            <End Role="CHUDETCN" EntitySet="CHUDETCN" />
+            <End Role="TINCONGNGHE" EntitySet="TINCONGNGHE" />
           </AssociationSet>
           <AssociationSet Name="FK_TRALOI_BINHLUAN" Association="Self.FK_TRALOI_BINHLUAN">
             <End Role="BINHLUAN" EntitySet="BINHLUAN" />
@@ -291,6 +329,12 @@
             <End Role="NGUOIDUNG" EntitySet="NGUOIDUNGs" />
             <End Role="TRALOI" EntitySet="TRALOIs" />
           </AssociationSet>
+          <EntitySet Name="CHUDETCNs" EntityType="CODESHARKModel.CHUDETCN" />
+          <EntitySet Name="TINCONGNGHEs" EntityType="CODESHARKModel.TINCONGNGHE" />
+          <AssociationSet Name="FK_MACHUDE" Association="CODESHARKModel.FK_MACHUDE">
+            <End Role="CHUDETCN" EntitySet="CHUDETCNs" />
+            <End Role="TINCONGNGHE" EntitySet="TINCONGNGHEs" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="sysdiagram">
           <Key>
@@ -401,6 +445,40 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="CHUDETCN">
+          <Key>
+            <PropertyRef Name="MACHUDE" />
+          </Key>
+          <Property Name="MACHUDE" Type="Int32" Nullable="false" />
+          <Property Name="TENCHUDE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TINCONGNGHEs" Relationship="CODESHARKModel.FK_MACHUDE" FromRole="CHUDETCN" ToRole="TINCONGNGHE" />
+        </EntityType>
+        <EntityType Name="TINCONGNGHE">
+          <Key>
+            <PropertyRef Name="MATCN" />
+          </Key>
+          <Property Name="MATCN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MACHUDE" Type="Int32" />
+          <Property Name="TENTCN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NGAYDANG" Type="DateTime" Precision="0" />
+          <Property Name="LUOTXEM" Type="Int32" />
+          <Property Name="TACGIA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CHUDETCN" Relationship="CODESHARKModel.FK_MACHUDE" FromRole="TINCONGNGHE" ToRole="CHUDETCN" />
+        </EntityType>
+        <Association Name="FK_MACHUDE">
+          <End Type="CODESHARKModel.CHUDETCN" Role="CHUDETCN" Multiplicity="0..1" />
+          <End Type="CODESHARKModel.TINCONGNGHE" Role="TINCONGNGHE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUDETCN">
+              <PropertyRef Name="MACHUDE" />
+            </Principal>
+            <Dependent Role="TINCONGNGHE">
+              <PropertyRef Name="MACHUDE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -487,6 +565,28 @@
                 <ScalarProperty Name="MABINHLUAN" ColumnName="MABINHLUAN" />
                 <ScalarProperty Name="MANGUOIDUNG" ColumnName="MANGUOIDUNG" />
                 <ScalarProperty Name="MATRALOI" ColumnName="MATRALOI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHUDETCNs">
+            <EntityTypeMapping TypeName="CODESHARKModel.CHUDETCN">
+              <MappingFragment StoreEntitySet="CHUDETCN">
+                <ScalarProperty Name="TENCHUDE" ColumnName="TENCHUDE" />
+                <ScalarProperty Name="MACHUDE" ColumnName="MACHUDE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TINCONGNGHEs">
+            <EntityTypeMapping TypeName="CODESHARKModel.TINCONGNGHE">
+              <MappingFragment StoreEntitySet="TINCONGNGHE">
+                <ScalarProperty Name="TACGIA" ColumnName="TACGIA" />
+                <ScalarProperty Name="LUOTXEM" ColumnName="LUOTXEM" />
+                <ScalarProperty Name="NGAYDANG" ColumnName="NGAYDANG" />
+                <ScalarProperty Name="ANH" ColumnName="ANH" />
+                <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+                <ScalarProperty Name="TENTCN" ColumnName="TENTCN" />
+                <ScalarProperty Name="MACHUDE" ColumnName="MACHUDE" />
+                <ScalarProperty Name="MATCN" ColumnName="MATCN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

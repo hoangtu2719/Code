@@ -1,0 +1,19 @@
+﻿@using EducationCode.Models;
+@model List<CHUDETCN>
+@{
+    Layout = null;
+}
+
+<li class="nav-item">
+    <div class="dropdown">
+        <a class="dropdown-toggle nav-link" id="dropdownMenu2" data-toggle="dropdown" href="#">
+            TinCôngNghệ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            @foreach (var item in Model)
+            {
+                <a class="dropdown-item" href="@Url.Action("LocChuDe","TinCongNghe", new {machude = item.MACHUDE })">@item.TENCHUDE</a>
+            }
+        </div>
+    </div>
+</li>

@@ -73,7 +73,7 @@
                 <span class="btn btn-primary">Hủy bỏ</span>
             </div>
             <div>
-                @foreach (var n in item.TRALOIs)
+                @foreach (var n in item.TRALOIs.OrderByDescending(n=>n.NGAYDANG).ToList())
                 {
                 <div>
                     <span style="color:blue">@n.NGUOIDUNG.TENDANGNHAP</span>
