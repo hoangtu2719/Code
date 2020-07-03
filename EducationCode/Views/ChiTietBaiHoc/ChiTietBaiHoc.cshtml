@@ -55,21 +55,35 @@
     </form>
 
     <div class="Phan duoi">
-        @foreach (var item in Model.BINHLUANs)
+        @foreach (var item in Model.BINHLUANs.OrderByDescending(n=>n.NGAYDANG).ToList())
         {
-            <p>@item.NOIDUNG</p>
-            <p>@item.NGUOIDUNG.TENDANGNHAP</p>
-            <form>
-                <input class="form-control" />
-                <input name="MaBinhLuan" type="hidden" value="@item.MABINHLUAN" />
-            </form>
+        <div style="margin-left:100px">
+            <span style="color:blue">
+                @item.NGUOIDUNG.TENDANGNHAP
+            </span>
+            <span>@item.NOIDUNG</span>
+        
+        </div>
+        <form style="margin-left:200px" action="@Url.Action("TraLoi","TraLoi")" method="post">
+            <span>Trả lời</span>
+            <input class="form-control" name="NOIDUNG" /> <!--Nội dung truyền vào trả lời, nền phải khai báo name trong input-->
+            <input name="MaBinhLuan" type="hidden" value="@item.MABINHLUAN" />
+            <div style="margin-top:5px">
+                <button class="btn btn-danger">Trả lời</button>
+                <span class="btn btn-primary">Hủy bỏ</span>
+            </div>
             <div>
                 @foreach (var n in item.TRALOIs)
                 {
-                    <p>@n.NOIDUNG</p>
-                    <p>@n.NGUOIDUNG.TENDANGNHAP</p>
+                <div>
+                    <span style="color:blue">@n.NGUOIDUNG.TENDANGNHAP</span>
+                    <span class="table-bordered" style="border-radius:5px; background-color:#8d949f;">@n.NOIDUNG</span>
+                </div>
+
                 }
             </div>
+        </form>
+           
         }
     </div>
 }
@@ -82,6 +96,7 @@ else
             </div>
             <div>
                 <input class="form-control" name="NOIDUNG" type="text" style="width:800px;height:100px;margin-left:100px;" placeholder="Để bình luận, bạn cần đăng nhập bằng tài khoản của CodeShark." />
+                <a href="/DangNhap/DangNhap" class="btn btn-primary">Đăng nhập</a>
             </div>
             <div style="margin-left:100px;margin-top:5px;">
                 <button type="submit" class="btn btn-danger">Nhận xét</button>

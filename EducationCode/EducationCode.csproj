@@ -139,6 +139,7 @@
     <Compile Include="Controllers\NguoiDung\DangNhapController.cs" />
     <Compile Include="Controllers\NguoiDung\DangXuatController.cs" />
     <Compile Include="Controllers\TimKiemController.cs" />
+    <Compile Include="Controllers\TraLoiController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -281,6 +282,7 @@
     <Folder Include="Views\BinhLuan\" />
     <Folder Include="Views\DangXuat\" />
     <Folder Include="Views\DanhMuc\" />
+    <Folder Include="Views\TraLoi\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
