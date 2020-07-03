@@ -1,8 +1,196 @@
 ﻿@using EducationCode.Models;
-@model List<BAIHOC>
+@model List<KHOAHOC>
 
-@foreach(var item in Model)
-{
-    <p>@item.TENBAIHOC</p>
-    <p>@item.TACGIA</p>
-}    
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<link href="~/Content/assets/css/style-starter.css" rel="stylesheet" />
+<div>
+    <div style="float:left;">
+        <h1 style="color:red;">Kết quả tìm kiếm của bạn</h1>
+    </div>
+    <div style="float:right">
+        <section class="w3l-banner-slider-main">
+
+            <div class="bannerhny-content">
+                <header class="top-headerhny">
+                    <!--/nav-->
+                    <!--Thnah tìm kiếm-->
+                    <div class="navbar navbar-expand-lg navbar-light fill" style="float:right;">
+                        <form action="@Url.Action("TimKiem","TimKiem")" method="post" class="d-flex searchhny-form">
+                            <input type="search" placeholder="Tìm kiếm....." required="required" name="tukhoa" style="background-color:lightblue;width:264px; height:52px;">
+                            <button type="submit"><span class="fa fa-search" aria-hidden="true"></span></button>
+                        </form>
+                    </div>
+                </header>
+            </div>
+            <!--//banner-slider-->
+        </section>
+    </div>
+</div>
+<div style="margin-top:30px;">
+    <section class="w3l-content-6">
+        <!-- /content-6-section -->
+        <div class="content-info-in row mt-md-5 mt-4">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-6 imghrs" style="margin-top:5%;">
+                    <a class="imghr" href="@Url.Action("ChiTietBaiVietMN","ChiTietKhoaHoc", new {makhoahoc = item.MAKHOAHOC})">
+                        <img src="~/Content/assets/images/@item.ANHKHOAHOC" class="img-fluid" alt="" style="height:270px">
+                        <div class="details"><span class="title">@item.ANHKHOAHOC</span><span class="info">@item.TACGIA</span></div>
+                    </a>
+                </div>
+            }
+        </div>
+    </section>
+</div>
+<!--Chân trang-->
+<div style="margin-top:20px;">
+    <section class="w3l-footer-16">
+        <div class="w3l-footer-16-main py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 column">
+                        <div class="row">
+                            <div class="col-md-8 column">
+
+                                <a class="logo-2" href="/TrangChu/Index">
+                                    <label class="lohny-2"><span class="fa fa-graduation-cap" aria-hidden="true"></span>Code</label>Shark
+                                </a>
+
+                                <div class="ad-text-inf">
+                                    <p><span class="color-hny">Địa chỉ :</span> Ấp Bến Giảng, Xã Phú An, Huyện Bến Cát,Tỉnh Bình Dương</p>
+                                </div>
+                                <div class="ad-text-inf">
+                                    <p><span class="color-hny">Email :</span> <a href="#">hoangtu2719@gmail.com</a></p>
+                                </div>
+                                <div class="ad-text-inf">
+                                    <p>
+                                        <span class="color-hny">Phone :</span> <a href="tel:+142 5897555">
+                                            +036
+                                            7278221
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 column">
+
+                                <ul class="footer-gd-16">
+                                    <li><a href="index.html">Giới thiệu</a></li>
+                                    <li><a href="about.html">Khóa học</a></li>
+                                    <li><a href="services.html">Tài liệu</a></li>
+                                    <li><a href="#">Liên hệ</a></li>
+                                    <li><a href="contact.html">Blog </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 column column3 mt-lg-0 mt-4">
+                        <h3>Khóa học</h3>
+                        <ul class="list-unstyled d-flex flex-wrap">
+                            <li class="">
+                                <div class="row">
+                                    <a class="col-md-5 col-4" href="#">
+                                        <img class="rounded img-fluid img-responsive" src="~/Content/assets/images/python.jpg"
+                                             alt="image">
+                                    </a>
+                                    <div class="col pl-0">
+                                        <a class="footer-small-text" href="#">[Khóa học] Python</a>
+                                        <div class="text-sub-small">Feb 20th</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mt-md-0 mt-2">
+                                <div class="row my-2 my-md-3">
+                                    <a class="col-md-5 col-4" href="#">
+                                        <img class="rounded img-fluid img-responsive" src="~/Content/assets/images/angular.png"
+                                             alt="image">
+                                    </a>
+                                    <div class="col pl-0">
+                                        <a class="footer-small-text" href="#">[Khóa học] Angular</a>
+                                        <div class="text-sub-small">Feb 22nd</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6 column column4 mt-lg-0 mt-4">
+                        <h3>Bản tin </h3>
+                        <div class="end-column">
+                            <h4>Theo dõi tại đây</h4>
+                            <form action="#" class="subscribe" method="post">
+                                <input type="email" name="email" placeholder="Địa chỉ Email" required="">
+                                <button><span class="fa fa-paper-plane" aria-hidden="true"></span></button>
+                            </form>
+                            <p>
+                                Theo dõi danh sách gửi thư của chúng tôi và nhận thông tin cập nhật vào hộp thư đến email của bạn.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex below-section justify-content-between align-items-center pt-4 mt-5">
+                    <div class="columns text-lg-left text-center">
+                        <p>
+                            © 2020 CodeShark<a href="https://w3layouts.com/" target="_blank">
+                                Design Lưu Hoàng Tú
+                            </a>
+                        </p>
+                    </div>
+                    <div class="columns-2 mt-md-0 mt-3">
+                        <ul class="social">
+                            <li>
+                                <a href="#facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a>
+                            </li>
+                            <li>
+                                <a href="#linkedin"><span class="fa fa-linkedin" aria-hidden="true"></span></a>
+                            </li>
+                            <li>
+                                <a href="#twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a>
+                            </li>
+                            <li>
+                                <a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                            </li>
+                            <li>
+                                <a href="#github"><span class="fa fa-github" aria-hidden="true"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- move top -->
+        <button onclick="topFunction()" id="movetop" title="Go to top">
+            <span class="fa fa-angle-up"></span>
+        </button>
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
+        <!-- //move top -->
+        <script>
+            $(function () {
+                $('.navbar-toggler').click(function () {
+                    $('body').toggleClass('noscroll');
+                })
+            });
+        </script>
+    </section>
+</div>

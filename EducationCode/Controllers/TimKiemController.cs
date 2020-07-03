@@ -13,7 +13,7 @@ namespace EducationCode.Controllers
         CODESHARKEntities db = new CODESHARKEntities();
         public ActionResult TimKiem(string tukhoa)
         {
-            List<BAIHOC> bh = db.BAIHOCs.Where(n => n.TENBAIHOC.Contains(tukhoa)).ToList();
+            List<KHOAHOC> bh = db.KHOAHOCs.Where(n => n.TENKHOAHOC.Contains(tukhoa)).ToList();
             return View(bh);
         }
     }
