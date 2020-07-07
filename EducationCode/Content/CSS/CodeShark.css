@@ -1,17 +1,17 @@
-﻿body{
-    padding-left:5%;
-    padding-right:5%;
-    background-color:whitesmoke;
-}
-.anhBanner
-{
-    background-image:url(../assets/images/Banner2.jpg);
-    background-size:cover;
-    height:404px;
-    width:100%;
-}
-form .size{
-    height:400px;
-    width:500px;
+﻿body {
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: whitesmoke;
 }
 
+.anhBanner {
+    background-image: url(../assets/images/Banner2.jpg);
+    background-size: cover;
+    height: 404px;
+    width: 100%;
+}
+
+form .size {
+    height: 400px;
+    width: 500px;
+}

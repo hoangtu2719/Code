@@ -4,6 +4,8 @@
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <script src="~/Scripts/bootstrap.min.js"></script>
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<link href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
 <!--Khai báo sesion người dùng để kiểm tra-->
 @{
     NGUOIDUNG sesnguoidung = (NGUOIDUNG)Session["NguoiDung"];
@@ -26,7 +28,18 @@
             <h3>@Model.NOIDUNG1</h3>
             <h2 style="color:purple">@Model.NDCHINH3</h2>
             <h3>@Model.NOIDUNG2</h3>
-
+            <!---->
+            <div class="container">
+                <div class="btn-group">
+                    <button class="btn btn-default btn-lg disabled"> Chia sẽ:
+                    </button>
+                    <a class="btn btn-default btn-lg" target="_blank" title="On Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:44314/ChiTietBaiHoc/ChiTietBaiHoc?machitiet=@Model.MABAIHOC"><i class="fa fa-facebook fa-lg fb"> </i></a>
+                    <a class="btn btn-default btn-lg" target="_blank" title="On Twitter" href="https://twitter.com/share?text=@Model.TENBAIHOC&url=@Model.MABAIHOC"> <i class="fa fa-twitter fa-lg tw"></i></a>
+                    <a class="btn btn-default btn-lg" target="_blank" title="On Google Plus" href="https://plus.google.com/share?url=https://localhost:44314/ChiTietBaiHoc/ChiTietBaiHoc?machitiet=@Model.MABAIHOC"><i class="fa fa-google-plus fa-lg google"></i></a>
+                    <a class="btn btn-default btn-lg" target="_blank" title="On Youtube" href="http://www.youtube.com/user/nptai"> <i class="fa fa-youtube fa-lg youtube"></i></a>
+                    <a class="btn btn-default btn-lg" target="_blank" title="Pin It" href="https://www.pinterest.com/pin/create/button/?url=&media=&description="><i class="fa fa-pinterest fa-lg pinterest"> </i></a>
+                </div>
+            </div>
         </div>
         <div style="float:right; width:25%;">
             <h4>Bài viết mới nhất</h4>
@@ -46,7 +59,6 @@
             <div>
                 <input class="form-control" name="NOIDUNG" type="text" style="width:800px;height:100px;margin-left:100px" placeholder="Thêm bình luận..." />
             </div>
-            <input name="MABAIHOC" type="hidden" value="@Model.MABAIHOC" />
             <div style="margin-left:100px;margin-top:5px;">
                 <button type="submit" class="btn btn-danger">Nhận xét</button>
                 <span><button class="btn btn-secondary">Hủy bỏ</button></span>
@@ -55,35 +67,35 @@
     </form>
 
     <div class="Phan duoi">
-        @foreach (var item in Model.BINHLUANs.OrderByDescending(n=>n.NGAYDANG).ToList())
+        @foreach (var item in Model.BINHLUANs.OrderByDescending(n => n.NGAYDANG).ToList())
         {
-        <div style="margin-left:100px">
-            <span style="color:blue">
-                @item.NGUOIDUNG.TENDANGNHAP
-            </span>
-            <span>@item.NOIDUNG</span>
-        
-        </div>
-        <form style="margin-left:200px" action="@Url.Action("TraLoi","TraLoi")" method="post">
-            <span>Trả lời</span>
-            <input class="form-control" name="NOIDUNG" /> <!--Nội dung truyền vào trả lời, nền phải khai báo name trong input-->
-            <input name="MaBinhLuan" type="hidden" value="@item.MABINHLUAN" />
-            <div style="margin-top:5px">
-                <button class="btn btn-danger">Trả lời</button>
-                <span class="btn btn-primary">Hủy bỏ</span>
+            <div style="margin-left:100px">
+                <span style="color:blue">
+                    @item.NGUOIDUNG.TENDANGNHAP
+                </span>
+                <span>@item.NOIDUNG</span>
             </div>
-            <div>
-                @foreach (var n in item.TRALOIs.OrderByDescending(n=>n.NGAYDANG).ToList())
-                {
-                <div>
-                    <span style="color:blue">@n.NGUOIDUNG.TENDANGNHAP</span>
-                    <span class="table-bordered" style="border-radius:5px; background-color:#8d949f;">@n.NOIDUNG</span>
+            //Trả lời
+            <form style="margin-left:200px" action="@Url.Action("TraLoi","TraLoi")" method="post">
+                <span>Trả lời</span>
+                <input class="form-control" name="NOIDUNG" /> <!--Nội dung truyền vào trả lời, nền phải khai báo name trong input-->
+                <input name="MaBinhLuan" type="hidden" value="@item.MABINHLUAN" />
+                <div style="margin-top:5px">
+                    <button class="btn btn-danger">Trả lời</button>
+                    <span class="btn btn-primary">Hủy bỏ</span>
                 </div>
+                <div>
+                    @foreach (var n in item.TRALOIs.OrderByDescending(n => n.NGAYDANG).ToList())
+                    {
+                        <div>
+                            <span style="color:blue">@n.NGUOIDUNG.TENDANGNHAP</span>
+                            <span class="table-bordered" style="border-radius:5px; background-color:#8d949f;">@n.NOIDUNG</span>
+                        </div>
 
-                }
-            </div>
-        </form>
-           
+                    }
+                </div>
+            </form>
+
         }
     </div>
 }
@@ -105,3 +117,34 @@ else
         </div>
     </form>
 }
+
+<!--CSS MẠNG XÃ HỘI -->
+<style>
+    .container {
+        text-align: center;
+    }
+
+    i.fb, span.fb {
+        color: #3b5998;
+    }
+
+    i.tw, span.tw {
+        color: #00aced;
+    }
+
+    i.google, span.google {
+        color: #dd4b39;
+    }
+
+    i.linkin, span.linkin {
+        color: #007bb6;
+    }
+
+    i.youtube, span.youtube {
+        color: #F00000;
+    }
+
+    i.pinterest, span.pinterest {
+        color: #cb2027;
+    }
+</style> 

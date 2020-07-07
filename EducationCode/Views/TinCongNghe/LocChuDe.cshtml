@@ -36,7 +36,6 @@
                         </ul>
                     </div>
                 </div>
-
             </nav>
             <!--Thnah tìm kiếm-->
             <div class="navbar navbar-expand-lg navbar-light fill" style="float:right;">
@@ -73,8 +72,7 @@
     <div class="card-body">
         <h5 class="card-title">@n.TENTCN</h5>
         <p class="card-text">@n.NOIDUNG</p>
-        <a href="#" class="btn btn-primary">Xem bài viết</a>
+        <a href="@Url.Action("ChiTietTCN","ChiTietTinCongNghe", new {machitiet = n.MATCN })" class="btn btn-primary">Xem bài viết</a>
     </div>
 </div>
 }
-

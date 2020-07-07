@@ -1,7 +1,6 @@
 // import axios from 'axios';
 
 // window.addEventListener('load', () => {
-
 //   const api = 'http://www.colr.org/json/color/random';
 //   const body = document.querySelector('body');
 
@@ -27,5 +26,5 @@
 
 console.log("Live");
 $('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
+    $('#myInput').trigger('focus')
 })

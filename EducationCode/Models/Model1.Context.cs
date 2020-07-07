@@ -26,12 +26,15 @@ namespace EducationCode.Models
         }
     
         public virtual DbSet<BAIHOC> BAIHOCs { get; set; }
+        public virtual DbSet<BINHLUAN> BINHLUANs { get; set; }
+        public virtual DbSet<BINHLUANBLOG> BINHLUANBLOGs { get; set; }
+        public virtual DbSet<BLOG> BLOGs { get; set; }
+        public virtual DbSet<CHUDEBLOG> CHUDEBLOGs { get; set; }
+        public virtual DbSet<CHUDETCN> CHUDETCNs { get; set; }
         public virtual DbSet<KHOAHOC> KHOAHOCs { get; set; }
         public virtual DbSet<NGUOIDUNG> NGUOIDUNGs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<BINHLUAN> BINHLUANs { get; set; }
-        public virtual DbSet<TRALOI> TRALOIs { get; set; }
-        public virtual DbSet<CHUDETCN> CHUDETCNs { get; set; }
         public virtual DbSet<TINCONGNGHE> TINCONGNGHEs { get; set; }
+        public virtual DbSet<TRALOI> TRALOIs { get; set; }
     }
 }

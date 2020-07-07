@@ -1,0 +1,58 @@
+﻿@model IEnumerable<EducationCode.Models.BINHLUANBLOG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MACHUDEBLOG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOIDUNG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYDANG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BLOG.NOIDUNG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGUOIDUNG.TAIKHOAN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MACHUDEBLOG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOIDUNG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYDANG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BLOG.NOIDUNG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGUOIDUNG.TAIKHOAN)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MABINHLUANBLOG }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MABINHLUANBLOG }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MABINHLUANBLOG })
+        </td>
+    </tr>
+}
+
+</table>

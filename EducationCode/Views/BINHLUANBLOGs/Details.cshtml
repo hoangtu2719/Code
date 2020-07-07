@@ -1,0 +1,59 @@
+﻿@model EducationCode.Models.BINHLUANBLOG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Layout/Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BINHLUANBLOG</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MACHUDEBLOG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MACHUDEBLOG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOIDUNG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOIDUNG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYDANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYDANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BLOG.NOIDUNG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BLOG.NOIDUNG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGUOIDUNG.TAIKHOAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGUOIDUNG.TAIKHOAN)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MABINHLUANBLOG }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -20,6 +20,7 @@ namespace EducationCode.Controllers
             List<KHOAHOC> kh = db.KHOAHOCs.OrderByDescending(n => n.LUOTXEM).Take(4).ToList();
             return PartialView("LocKhoaHocMoiNhat", kh);
         }
+
         public PartialViewResult LocBaiVietXemNhieu()
         {
             return PartialView(db.BAIHOCs.ToList());

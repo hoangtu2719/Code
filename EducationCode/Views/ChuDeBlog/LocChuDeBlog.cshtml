@@ -1,0 +1,77 @@
+﻿@using EducationCode.Models;
+@model List<BLOG>
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Blog</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <h1 style="color: blue;margin-left: 500px;">Blog hỏi đáp</h1>
+        <form action="@Url.Action("NhapBlog","Blog")" method="post">
+            <div style="margin-top:50px;">
+                <div style="float:left;width:20%;">
+                    <img src="#" style="width:50px;height:50px;margin-left:300px;border-radius:50%;" class="rounded-circle">
+                </div>
+                <div style="float:left;width:80%">
+                    <input class="form-control" type="text" name="NOIDUNG" style="height:100px;width:800px;margin-left: 100px;" placeholder="Bạn đang nghĩ gì?">
+                    <div style="margin-left:100px;margin-top:20px;">
+                        <button class="btn btn-danger" type="submit">Hỏi</button>
+                    </div>
+                    @foreach (var i in Model)
+                    {
+                        <input name="MaChuDeBlog" type="hidden" value="@i.MACHUDEBLOG" />
+                    }
+                </div>
+              
+            </div>
+        </form>
+    <!--Phần blog mới đăng-->
+        <div style="margin-top:250px;">
+            @foreach (var n in Model.OrderByDescending(n=>n.NGAYDANG).ToList())
+            {
+                <div style="margin-left:370px;margin-top:30px;">
+                    <span style="color:blue">@n.NGUOIDUNG.TENDANGNHAP</span>
+                    <span>@n.NOIDUNG</span>
+                    <p>@n.NGAYDANG</p>
+                </div>
+               
+                <form action="@Url.Action("BinhLuanBlog","Blog")" method="post">
+                    <div style="margin-left:400px;">
+                        <span>Trả lời</span>
+                        <input class="form-control" name="NOIDUNG" /> <!--Nội dung truyền vào trả lời, nền phải khai báo name trong input-->
+                        <input name="MABLOG" type="hidden" value="@n.MABLOG" />
+                        <div style="margin-top:5px">
+                            <button class="btn btn-danger" type="submit">Trả lời</button>
+                            <span class="btn btn-primary">Hủy bỏ</span>
+                        </div>
+                    </div>
+                    <div>
+                        @foreach (var i in n.BINHLUANBLOGs)
+                        {
+                        <div style="margin-left:400px;">
+                            <span style="color:blue">@n.NGUOIDUNG.TENDANGNHAP</span>
+                            <span>@i.NOIDUNG</span>
+                            <p>@i.NGAYDANG</p>
+                        </div>
+                        }
+                    </div>
+                </form>
+            }
+        </div>
+ 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+

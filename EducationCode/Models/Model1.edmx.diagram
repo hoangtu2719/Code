@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b2a1662995ab4dfa8c4c5f81567248d9" Name="Diagram1">
+        <EntityTypeShape EntityType="CODESHARKModel.BAIHOC" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CODESHARKModel.BINHLUAN" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CODESHARKModel.BINHLUANBLOG" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CODESHARKModel.BLOG" Width="1.5" PointX="11.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CODESHARKModel.CHUDEBLOG" Width="1.5" PointX="9" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CODESHARKModel.CHUDETCN" Width="1.5" PointX="2.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CODESHARKModel.KHOAHOC" Width="1.5" PointX="1.5" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CODESHARKModel.NGUOIDUNG" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CODESHARKModel.sysdiagram" Width="1.5" PointX="7.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CODESHARKModel.TINCONGNGHE" Width="1.5" PointX="5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="CODESHARKModel.TRALOI" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
+        <AssociationConnector Association="CODESHARKModel.FK__BAIHOC__MAKHOAHO__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="CODESHARKModel.FK__KHOAHOC__MABAIHO__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="CODESHARKModel.FK_BINHLUAN_BAIHOC" ManuallyRouted="false" />
+        <AssociationConnector Association="CODESHARKModel.FK_BINHLUAN_NGUOIDUNG" ManuallyRouted="false" />
+        <AssociationConnector Association="CODESHARKModel.FK_TRALOI_BINHLUAN" ManuallyRouted="false" />
+        <AssociationConnector Association="CODESHARKModel.FK_BINHLUANBLOG_BLOG" ManuallyRouted="false" />
+        <AssociationConnector Association="CODESHARKModel.FK_BINHLUANBLOG_NGUOIDUNG" ManuallyRouted="false" />
+        <AssociationConnector Association="CODESHARKModel.FK_BLOG_BINHLUANBLOG" ManuallyRouted="false" />
+        <AssociationConnector Association="CODESHARKModel.FK_BLOG_CHUDEBLOG" ManuallyRouted="false" />
+        <AssociationConnector Association="CODESHARKModel.FK_BLOG_NGUOIDUNG" ManuallyRouted="false" />
+        <AssociationConnector Association="CODESHARKModel.FK_MND" ManuallyRouted="false" />
+        <AssociationConnector Association="CODESHARKModel.FK_MACHUDE" ManuallyRouted="false" />
+        <AssociationConnector Association="CODESHARKModel.FK_TRALOI_NGUOIDUNG" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

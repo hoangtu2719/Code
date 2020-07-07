@@ -21,7 +21,6 @@ namespace EducationCode.Models
         public Nullable<System.DateTime> NGAYDANG { get; set; }
     
         public virtual BINHLUAN BINHLUAN { get; set; }
-        public virtual BINHLUAN BINHLUAN1 { get; set; }
         public virtual NGUOIDUNG NGUOIDUNG { get; set; }
     }
 }

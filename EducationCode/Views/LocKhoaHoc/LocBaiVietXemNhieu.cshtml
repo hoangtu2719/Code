@@ -1,7 +1,6 @@
 ﻿@using EducationCode.Models;
 @model List<BAIHOC>
 
-
 @foreach( var item in Model.OrderByDescending(n=>n.LUOTXEM))
 {
     <a href="@Url.Action("ChiTietBaiHoc","ChiTietBaiHoc", new {mabaihoc = item.MABAIHOC })" style="text-decoration:none;">
