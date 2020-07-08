@@ -2,50 +2,101 @@
 
 @{
     ViewBag.Title = "DangKi";
-    Layout = "~/Views/Layout/Layout.cshtml";
+    Layout = null;
 }
 
-<h2>Đăng kí tài khoản</h2>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<h2 class="text-center" style="color:blue">Đăng kí tài khoản</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
 <div class="form-horizontal">
 
     <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.TAIKHOAN, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input type="text" class="form-control" name="TAIKHOAN" />
-            @Html.ValidationMessageFor(model => model.TAIKHOAN, "", new { @class = "text-danger" })
+    <div style="margin-left:400px;">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <span class="control-label col-md-2">Tài khoản</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="TAIKHOAN" style="width:40%; height:30px;" />
+                @Html.ValidationMessageFor(model => model.TAIKHOAN, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    @ViewBag.TaiKhoan
-    <div class="form-group">
-        @Html.LabelFor(model => model.MATKHAU, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-           <input type="password" class="form-control" name="matkhau" />
-            @Html.ValidationMessageFor(model => model.MATKHAU, "", new { @class = "text-danger" })
+        <div style="margin-left:160px;color:red">
+            @ViewBag.TaiKhoan
         </div>
-    </div>
+        <div class="form-group">
+            <span class="control-label col-md-2">Tên đăng nhập</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="TENDANGNHAP" style="width:40%; height:30px;" />
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="control-label col-md-2">Email</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="EMAIL" style="width:40%; height:30px;" />
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="control-label col-md-2">Địa chỉ</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="DIACHI" style="width:40%; height:30px;" />
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="control-label col-md-2">Số điện thoại</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="SODIENTHOAI" style="width:40%; height:30px;" />
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="control-label col-md-2">Số chứng minh</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="SOCMND" style="width:40%; height:30px;" />
+            </div>
+        </div>
 
-    <div class="form-group">
-       <span class="control-label col-md-2">Nhập lại mật khẩu</span>
-        <div class="col-md-10">
-          <input type="password" class="form-control" name="nhaplaimk" />
+
+        <div class="form-group">
+            <span class="control-label col-md-2">Mật khẩu</span>
+            <div class="col-md-10">
+                <input type="password" class="form-control" name="matkhau" style="width:40%; height:30px;" />
+                @Html.ValidationMessageFor(model => model.MATKHAU, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">Nhập lại mật khẩu</span>
+            <div class="col-md-10">
+                <input type="password" class="form-control" name="nhaplaimk" style="width:40%; height:30px;" />
+            </div>
+        </div>
+        <div style="margin-left:160px;color:red">
+            @ViewBag.ThongBao
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="hidden" class="form-control" name="AnhNguoiDung" value="avata.png" style="width:40%; height:30px;" />
+            </div>
+        </div>
+
+     
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Tạo tài khoản" class="btn btn-success" />
+            </div>
         </div>
     </div>
-    @ViewBag.ThongBao
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
+    <div class="text-center">
+        <a href="/DangNhap/DangNhap">
+            <svg width="6em" height="6em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.646 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L6.207 7.5H11a.5.5 0 0 1 0 1H6.207l2.147 2.146z" />
+            </svg>
+        </a>
     </div>
 </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

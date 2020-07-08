@@ -1,6 +1,25 @@
 ﻿@{
     ViewBag.Title = "DangKiThanhCong";
-    Layout = "~/Views/Layout/Layout.cshtml";
+    Layout = null;
 }
 
-<h2>Bạn đăng kí thành công</h2>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<!--Màu nền của Face book "#e9ebee;"-->
+<div style="background-color:#e9ebee; height:100%;">
+    <div>
+        <img src="~/Content/assets/images/nendk.jpg" style="width:60%; height:300px;" class=" img-rounded center-block" />
+    </div>
+    <div class="text-center" style="margin-top:20px">
+        <h1>Đăng kí thành công</h1>
+        <a href="/DangNhap/DangNhap">
+            <svg width="7em" height="7em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8.354 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+            </svg>
+        </a>
+        <div style="margin-top:10px;">
+            <a href="/DangNhap/DangNhap" class="btn btn-primary">Đăng nhập ngay</a>
+        </div>
+    </div>
+</div>

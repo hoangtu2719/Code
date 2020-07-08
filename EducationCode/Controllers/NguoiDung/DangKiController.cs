@@ -17,14 +17,14 @@ namespace EducationCode.Controllers.NguoiDung
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Dangki([Bind(Include = "MANGUOIDUNG,TAIKHOAN,MATKHAU,TENDANGNHAP,EMAIL,DIACHI,SOCMND,SODIENTHOAI")] NGUOIDUNG nGUOIDUNG, String nhaplaimk, string taikhoan)
+        public ActionResult Dangki([Bind(Include = "MANGUOIDUNG,TAIKHOAN,MATKHAU,TENDANGNHAP,EMAIL,DIACHI,SOCMND,SODIENTHOAI,AnhNguoiDung")] NGUOIDUNG nGUOIDUNG, String nhaplaimk, string taikhoan)
         {
             if (ModelState.IsValid)
             {
                 //Kiểm tra mật khảu có trùng khớp
                 if (nhaplaimk != nGUOIDUNG.MATKHAU)
                 {
-                    ViewBag.ThongBao = "Không trùng khớp";
+                    ViewBag.ThongBao = "Mật khẩu không trùng khớp";
                     return View();
                 }
                 //Kiểm tra mật khảu có trùng khớp

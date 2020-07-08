@@ -15,7 +15,7 @@
     <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,500,700,900&display=swap" rel="stylesheet">
     <link href="~/Content/assets/css/style-starter.css" rel="stylesheet" />
 </head>
-<body style="background-color:gray">
+<body style="background-color:#e9ebee;">
     @if (Session["NguoiDung"] != null)
     {
         Response.Redirect("/TrangChu/Index");
@@ -23,25 +23,27 @@
     else
     {
         <form action="@Url.Action("DangNhap","DangNhap")" method="post">
-            <div class="size">
+            <div class="size img-rounded">
                 <div class="size-dangnhap container">
                     @Html.Raw(ViewBag.ThongBao)
-                    <div class="logo">
-                        <span class="fa fa-graduation-cap" aria-hidden="true" style="color:#F30067;"></span><b>CodeShark</b>
-                    </div>
+                    <a href="/TrangChu/Index">
+                        <div class="logo">
+                            <span class="fa fa-graduation-cap" aria-hidden="true" style="color:#F30067;"></span><b>CodeShark</b>
+                        </div>
+                    </a>
                     <div class="form-dangnhap">
                         <b>Đăng nhập</b>
-                        <input type="text" class="form-control taikhoan" name="taikhoan" />
+                        <input type="text" class="form-control taikhoan" name="taikhoan" autocomplete="off" />
                         @ViewBag.TBTK
                         <br />
                         <input type="password" class="form-control matkhau" name="matkhau" />
                         @ViewBag.TBMK
                         <br />
-                        <span style="font-size:14px;">Không có tài khoản?<a href="#" class="text-primary">Tạo tài khoản!</a></span>
+                        <span style="font-size:14px;">Không có tài khoản?<a href="/DangKi/DangKi" class="text-primary">Tạo tài khoản!</a></span>
                         <br />
                         <span><a href="#" class="text-primary" style="font-size:14px;">Quên mật khẩu?</a></span>
                         <br />
-                        <button type="submit" class="btn-primary button">Đăng nhập</button>
+                        <button type="submit" class="btn btn-primary">Đăng nhập</button>
                     </div>
                 </div>
             </div>

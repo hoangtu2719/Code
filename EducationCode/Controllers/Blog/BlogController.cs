@@ -28,7 +28,7 @@ namespace EducationCode.Controllers
             blb.MANGUOIDUNG = nd.MANGUOIDUNG;
             db.BINHLUANBLOGs.Add(blb);
             db.SaveChanges();
-            return Redirect("/TrangChu/Index");
+            return Redirect(Request.UrlReferrer.ToString());
         }
     }
 }

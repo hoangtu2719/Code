@@ -200,18 +200,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\Avatar\avata.png" />
     <Content Include="Content\assets\css\style-starter.css" />
     <Content Include="Content\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\assets\imagesapi\Anhnen.jpg" />
+    <Content Include="Content\assets\imagesapi\anhnen2.jpg" />
     <Content Include="Content\assets\imagesapi\API.png" />
+    <Content Include="Content\assets\imagesapi\Banner3.png" />
     <Content Include="Content\assets\images\angular.png" />
     <Content Include="Content\assets\images\Banner.png" />
     <Content Include="Content\assets\images\Banner2.jpg" />
+    <Content Include="Content\assets\images\bgdn.jpg" />
+    <Content Include="Content\assets\images\Bg_blog.jpg" />
     <Content Include="Content\assets\images\bookstrap.png" />
     <Content Include="Content\assets\images\css.png" />
     <Content Include="Content\assets\images\HTML.png" />
     <Content Include="Content\assets\images\HTMLNC.jpg" />
     <Content Include="Content\assets\images\jquery.jpg" />
     <Content Include="Content\assets\images\js.png" />
+    <Content Include="Content\assets\images\nendk.jpg" />
     <Content Include="Content\assets\images\python.jpg" />
     <Content Include="Content\assets\images\sql.png" />
     <Content Include="Content\assets\js\all.js" />

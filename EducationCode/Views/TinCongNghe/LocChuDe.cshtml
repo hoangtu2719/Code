@@ -6,73 +6,22 @@
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <link href="~/Content/assets/css/style-starter.css" rel="stylesheet" />
 <!--Menu-->
+<h1 class="text-center text-danger display-3">Tin công nghệ</h1>
+<img src="~/Content/assets/imagesapi/anhnen2.jpg" style="width:80%;height:300px;margin-left:150px;" />
 
-<section class="w3l-banner-slider-main">
-
-    <div class="bannerhny-content">
-        <header class="top-headerhny">
-            <!--/nav-->
-            <nav class="navbar navbar-expand-lg navbar-light fill">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="/TrangChu">
-                        <label class="lohny"><span class="fa fa-graduation-cap" aria-hidden="true"></span>Code</label>Shark
-                    </a>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mx-lg-auto ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Giới thiệu</a>
-                            </li>
-                            @Html.Action("DanhSachKhoaHoc", "Menu")
-                            <li class="nav-item">
-                                <a class="nav-link" href="services.html">Tài liệu</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/LienHe/LienHe">Blog</a>
-                            </li>
-                            @Html.Action("DanhMucTinCongNghe", "TinCongNghe")
-                            <li class="nav-item">
-                                <a class="nav-link" href="/LienHe/LienHe">Liên hệ</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <!--Thnah tìm kiếm-->
-            <div class="navbar navbar-expand-lg navbar-light fill" style="float:right;">
-                <form action="@Url.Action("TimKiem","TimKiem")" method="post" class="d-flex searchhny-form">
-                    <input type="search" placeholder="Tìm kiếm....." required="required" name="tukhoa">
-                    <button type="submit"><span class="fa fa-search" aria-hidden="true"></span></button>
-                </form>
-            </div>
-        </header>
-
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="carousel-caption" style="margin-bottom:5%;">
-                        <h3>Bạn thích lập trình</h3>
-                        <h4>Những không biết bắt đầu từ đâu</h4>
-                        <div class="button-4 mx-auto">
-                            <div class="eff-4"></div>
-                            <a href="services.html">Học ngay</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--//banner-slider-->
-</section>
-<h1 style="color:red">Tin công nghệ</h1>
 @foreach (var n in Model)
 {
         <!--Phải-->
-<div class="card col-3" style="width:300px; float:left; margin-left:30px; margin-top:15px;">
-    <img class="card-img-top" src="~/Content/assets/imagesapi/@n.ANH" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">@n.TENTCN</h5>
-        <p class="card-text">@n.NOIDUNG</p>
-        <a href="@Url.Action("ChiTietTCN","ChiTietTinCongNghe", new {machitiet = n.MATCN })" class="btn btn-primary">Xem bài viết</a>
-    </div>
+<div style="margin-left:140px;">
+    <a href="@Url.Action("ChiTietTCN","ChiTietTinCongNghe", new {machitiet = n.MATCN })">
+        <div class="card col-3" style="width:250px; float:left;margin-top:15px; margin-left:20px;">
+            <img class="card-img-top" src="~/Content/assets/imagesapi/@n.ANH" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title font-weight-bold display-4" style="color:black">@n.TENTCN</h5>
+                <p class="card-text" style="color:black">@n.NOIDUNG</p>
+                <p class="btn btn-outline-primary display-3" style="width:100%;">Xem nội dung</p>
+            </div>
+        </div>
+    </a>
 </div>
 }

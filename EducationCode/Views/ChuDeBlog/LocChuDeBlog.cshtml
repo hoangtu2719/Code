@@ -1,6 +1,9 @@
 ﻿@using EducationCode.Models;
 @model List<BLOG>
 
+@{ 
+    NGUOIDUNG sesnguoidung = (NGUOIDUNG)Session["NguoiDung"];
+}
 
 <!doctype html>
 <html lang="en">
@@ -14,59 +17,124 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <h1 style="color: blue;margin-left: 500px;">Blog hỏi đáp</h1>
-        <form action="@Url.Action("NhapBlog","Blog")" method="post">
-            <div style="margin-top:50px;">
-                <div style="float:left;width:20%;">
-                    <img src="#" style="width:50px;height:50px;margin-left:300px;border-radius:50%;" class="rounded-circle">
+    @if (sesnguoidung != null)
+    {
+        <div style="float:left; width:25%">
+            <h4 class="text-center">Bài viết mới nhất</h4>
+            @Html.Action("LocBaiVietXemNhieu", "LocKhoaHoc")
+        </div>
+        <div style="float:left; width:70%;">
+            <div>
+                <div style="color: blue; margin-left:200px;">
+                    <h1 >Blog hỏi đáp</h1>
                 </div>
-                <div style="float:left;width:80%">
-                    <input class="form-control" type="text" name="NOIDUNG" style="height:100px;width:800px;margin-left: 100px;" placeholder="Bạn đang nghĩ gì?">
-                    <div style="margin-left:100px;margin-top:20px;">
-                        <button class="btn btn-danger" type="submit">Hỏi</button>
-                    </div>
-                    @foreach (var i in Model)
-                    {
-                        <input name="MaChuDeBlog" type="hidden" value="@i.MACHUDEBLOG" />
-                    }
+                <div style="color: blue; float:right">
+                    
+                    <a href="/TrangChu/Index" class="btn btn-outline-success">
+                        <span>
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path fill-rule="evenodd" d="M8.354 11.354a.5.5 0 0 0 0-.708L5.707 8l2.647-2.646a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z" />
+                                <path fill-rule="evenodd" d="M11.5 8a.5.5 0 0 0-.5-.5H6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5z" />
+                            </svg>
+                        </span>
+                        <span>
+                            Quay lại trang chủ
+                        </span>
+                    </a>
                 </div>
-              
-            </div>
-        </form>
-    <!--Phần blog mới đăng-->
-        <div style="margin-top:250px;">
-            @foreach (var n in Model.OrderByDescending(n=>n.NGAYDANG).ToList())
-            {
-                <div style="margin-left:370px;margin-top:30px;">
-                    <span style="color:blue">@n.NGUOIDUNG.TENDANGNHAP</span>
-                    <span>@n.NOIDUNG</span>
-                    <p>@n.NGAYDANG</p>
-                </div>
-               
-                <form action="@Url.Action("BinhLuanBlog","Blog")" method="post">
-                    <div style="margin-left:400px;">
-                        <span>Trả lời</span>
-                        <input class="form-control" name="NOIDUNG" /> <!--Nội dung truyền vào trả lời, nền phải khai báo name trong input-->
-                        <input name="MABLOG" type="hidden" value="@n.MABLOG" />
-                        <div style="margin-top:5px">
-                            <button class="btn btn-danger" type="submit">Trả lời</button>
-                            <span class="btn btn-primary">Hủy bỏ</span>
+                <form action="@Url.Action("NhapBlog","Blog")" method="post">
+                    <div style="margin-top:70px;">
+                        <div style="float:left;width:10%">
+                            <img src="~/Content/assets/Avatar/avata.png" style="width:50px;height:50px;border-radius:50%;margin-left:15px;" class="rounded-circle">
                         </div>
-                    </div>
-                    <div>
-                        @foreach (var i in n.BINHLUANBLOGs)
-                        {
-                        <div style="margin-left:400px;">
-                            <span style="color:blue">@n.NGUOIDUNG.TENDANGNHAP</span>
-                            <span>@i.NOIDUNG</span>
-                            <p>@i.NGAYDANG</p>
+                        <div style="float:right;width:90%">
+                            <input class="form-control" type="text" name="NOIDUNG" style="height:100px;width:800px;" placeholder="Bạn muốn hỏi gì?">
+                            <div style="margin-top:20px;">
+                                <button class="btn btn-danger" type="submit">Đăng bài viết</button>
+                            </div>
+                            @foreach (var i in Model)
+                            {
+                                <input name="MaChuDeBlog" type="hidden" value="@i.MACHUDEBLOG" />
+                            }
                         </div>
-                        }
+
                     </div>
                 </form>
-            }
+                <!--Phần blog mới đăng-->
+                <div style="margin-top:250px;">
+                    @foreach (var n in Model.OrderByDescending(n => n.NGAYDANG).ToList())
+                    {
+                        <div style="margin-left:15px;">
+                            <div style="float:left; font-family:'Times New Roman'">
+                                <img src="~/Content/assets/Avatar/avata.png" style="width:50px;height:50px;border-radius:50%;" class="rounded-circle">
+                            </div>
+                            <div style="margin-top:30px;">
+                                <span style="color:blue">@n.NGUOIDUNG.TENDANGNHAP</span>
+                                <p style="font-size:30px;">@n.NOIDUNG</p>
+                                <div style="margin-left:50px;">
+                                    <span style="color:red">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-alarm-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M5.5.5A.5.5 0 0 1 6 0h4a.5.5 0 0 1 0 1H9v1.07a7.002 7.002 0 0 1 3.537 12.26l.817.816a.5.5 0 0 1-.708.708l-.924-.925A6.967 6.967 0 0 1 8 16a6.967 6.967 0 0 1-3.722-1.07l-.924.924a.5.5 0 0 1-.708-.708l.817-.816A7.002 7.002 0 0 1 7 2.07V1H5.999a.5.5 0 0 1-.5-.5zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.035 8.035 0 0 0 .86 5.387zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1zm-5 4a.5.5 0 0 0-1 0v3.882l-1.447 2.894a.5.5 0 1 0 .894.448l1.5-3A.5.5 0 0 0 8.5 9V5z" />
+                                        </svg>
+                                        <span>@n.NGAYDANG</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form action="@Url.Action("BinhLuanBlog","Blog")" method="post">
+                            <div style="margin-left:100px;">
+                                <span>Trả lời</span>
+                                <input class="form-control" name="NOIDUNG" /> <!--Nội dung truyền vào trả lời, nền phải khai báo name trong input-->
+                                <input name="MABLOG" type="hidden" value="@n.MABLOG" />
+                                <div style="margin-top:5px">
+                                    <button class="btn btn-danger" type="submit">Trả lời</button>
+                                    <span class="btn btn-primary">Hủy bỏ</span>
+                                </div>
+                            </div>
+                            <div>
+                                @foreach (var i in n.BINHLUANBLOGs)
+                                {
+                                    <div style="margin-left:100px;">
+                                        <span style="color:blue">@n.NGUOIDUNG.TENDANGNHAP</span>
+                                        <span>@i.NOIDUNG</span>
+                                        <div style="margin-left:100px;">
+                                            <span style="color:red">
+                                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-alarm-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" d="M5.5.5A.5.5 0 0 1 6 0h4a.5.5 0 0 1 0 1H9v1.07a7.002 7.002 0 0 1 3.537 12.26l.817.816a.5.5 0 0 1-.708.708l-.924-.925A6.967 6.967 0 0 1 8 16a6.967 6.967 0 0 1-3.722-1.07l-.924.924a.5.5 0 0 1-.708-.708l.817-.816A7.002 7.002 0 0 1 7 2.07V1H5.999a.5.5 0 0 1-.5-.5zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.035 8.035 0 0 0 .86 5.387zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1zm-5 4a.5.5 0 0 0-1 0v3.882l-1.447 2.894a.5.5 0 1 0 .894.448l1.5-3A.5.5 0 0 0 8.5 9V5z" />
+                                                </svg>
+                                                <span>@n.NGAYDANG</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </form>
+                    }
+                </div>
+            </div>
         </div>
- 
+    }
+    else
+    {
+               
+
+<div class="text-center" style="margin-top:100px;">
+    <h1 style="color:blue">Bạn phải đăng nhập mới vào Blog được</h1>
+    <a href="/DangNhap/DangNhap">
+        <p class="btn btn-danger">Đăng nhập ngay</p>
+    </a>
+    <div style="color:green">
+        <svg width="6em" height="6em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path fill-rule="evenodd" d="M7.646 11.354a.5.5 0 0 1 0-.708L10.293 8 7.646 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z" />
+            <path fill-rule="evenodd" d="M4.5 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z" />
+        </svg>
+    </div>
+</div>
+    }
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
